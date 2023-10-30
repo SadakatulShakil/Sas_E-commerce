@@ -1,8 +1,8 @@
-import 'package:byte_trek_task/Screens/auth/auth_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
 import 'Api/api_service.dart';
+import 'Screens/auth/auth_screen.dart';
 import 'Screens/home/main_screen.dart';
 import 'Screens/welcome/splash_screen.dart';
 import 'helper/constant.dart';

@@ -1,7 +1,8 @@
-import 'package:byte_trek_task/Screens/auth/widget/signin_widget.dart';
-import 'package:byte_trek_task/Screens/auth/widget/signup_widget.dart';
-import 'package:byte_trek_task/helper/constant.dart';
 import 'package:flutter/material.dart';
+import 'package:sas_ecommerce/Screens/auth/widget/signin_widget.dart';
+import 'package:sas_ecommerce/Screens/auth/widget/signup_widget.dart';
+
+import '../../helper/constant.dart';
 
 class AuthScreen extends StatelessWidget {
   @override

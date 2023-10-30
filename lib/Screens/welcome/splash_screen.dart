@@ -1,9 +1,9 @@
-import 'package:byte_trek_task/Screens/auth/auth_screen.dart';
 import 'package:flutter/material.dart';
 import 'dart:async';
 
 import 'package:shared_preferences/shared_preferences.dart';
 
+import '../auth/auth_screen.dart';
 import '../home/main_screen.dart';
 import 'onboard_screen.dart';
 
