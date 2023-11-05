@@ -1,8 +1,14 @@
 import 'package:flutter/material.dart';
 
 import '../../../helper/constant.dart';
+import '../common/text_from_field.dart';
 
-class SignUpWidget extends StatelessWidget {
+class SignUpWidget extends StatefulWidget {
+  @override
+  _SignUpWidgetState createState() => _SignUpWidgetState();
+}
+
+class _SignUpWidgetState extends State<SignUpWidget> {
   @override
   Widget build(BuildContext context) {
     return SingleChildScrollView(
@@ -14,46 +20,66 @@ class SignUpWidget extends StatelessWidget {
             SizedBox(height: 30,),
             Text(
               'Sign Up,',
-              style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold,  color: Colors.black),
+              style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold, color: Colors.black),
             ),
             SizedBox(height: 20),
-            // Add your sign-up form widgets here
-            // For example, you can use TextFormField, ElevatedButton, etc.
-            TextFormField(
-              decoration: InputDecoration(
-                labelText: 'Email',
-                labelStyle: TextStyle(color: greenshede0),
-                focusedBorder: UnderlineInputBorder(
-                  borderSide: BorderSide(color: greenshede0), // Underline color when the field is focused
-                ),// Cursor color
-              ),
+            Row(
+              children: [
+                Expanded(
+                  child: GetTextFormField(
+                    hintName: "First name",
+                    inputType: TextInputType.text,
+                  ),
+                ),
+                SizedBox(width: 10),
+                Expanded(
+                  child: GetTextFormField(
+                    hintName: "Last name",
+                    inputType: TextInputType.text,
+                  ),
+                ),
+              ],
             ),
-            TextFormField(
-              decoration: InputDecoration(labelText: 'Password',
-                labelStyle: TextStyle(color: greenshede0),
-                focusedBorder: UnderlineInputBorder(
-                  borderSide: BorderSide(color: greenshede0), // Underline color when the field is focused
-                ),),
-              obscureText: true,
+            GetTextFormField(
+              hintName: "Email",
+              inputType: TextInputType.emailAddress,
             ),
-            TextFormField(
-              decoration: InputDecoration(labelText: 'Confirm Password',
-                labelStyle: TextStyle(color: greenshede0),
-                focusedBorder: UnderlineInputBorder(
-                  borderSide: BorderSide(color: greenshede0), // Underline color when the field is focused
-                ),),
-              obscureText: true,
+            GetTextFormField(
+              hintName: "Phone",
+              inputType: TextInputType.phone,
+            ),
+            GetTextFormField(
+              hintName: 'Password',
+              inputType: TextInputType.text,
+              isObscureText: true,
+            ),
+            GetTextFormField(
+              hintName: 'Confirm Password',
+              inputType: TextInputType.text,
+              isObscureText: true,
             ),
             SizedBox(height: 20),
             ElevatedButton(
               onPressed: () {
-                // Implement sign-in logic here
+                // Implement sign-up logic here
               },
               style: ElevatedButton.styleFrom(
-                primary: lightgreenshede1, // Set the background color here
+                primary: lightgreenshede1,
               ),
-              child: Text('Sign Up',style: TextStyle(color: primarygreen)),
+              child: Text('Sign Up', style: TextStyle(color: primarygreen)),
             ),
+            SizedBox(height: 20,),
+
+            GestureDetector(
+              onTap: (){
+
+              },
+              child: Align(
+                alignment: Alignment.center,
+                child: Text("Skip for Now  ->",
+                    style: TextStyle(fontSize: 15, fontWeight: FontWeight.bold, color: greenshede0)),
+              ),
+            )
           ],
         ),
       ),

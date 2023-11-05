@@ -3,7 +3,7 @@ import 'package:provider/provider.dart';
 
 import 'Api/api_service.dart';
 import 'Screens/auth/auth_screen.dart';
-import 'Screens/home/main_screen.dart';
+import 'Screens/home/dashboard_screen.dart';
 import 'Screens/welcome/splash_screen.dart';
 import 'helper/constant.dart';
 
@@ -35,7 +35,7 @@ class MyApp extends StatelessWidget {
       routes: {
         '/': (context) => SplashScreen(),
         '/auth': (context) => AuthScreen(),
-        '/main': (context) => HomePage(),
+        '/main': (context) => DashBoardScreen(),
       },
     );
   }

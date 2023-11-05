@@ -4,7 +4,7 @@ import 'dart:async';
 import 'package:shared_preferences/shared_preferences.dart';
 
 import '../auth/auth_screen.dart';
-import '../home/main_screen.dart';
+import '../home/dashboard_screen.dart';
 import 'onboard_screen.dart';
 
 class SplashScreen extends StatefulWidget {
