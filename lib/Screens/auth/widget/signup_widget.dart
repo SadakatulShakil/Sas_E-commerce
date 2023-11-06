@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 import '../../../helper/constant.dart';
-import '../common/text_from_field.dart';
+import '../../../helper/text_from_field.dart';
 
 class SignUpWidget extends StatefulWidget {
   @override

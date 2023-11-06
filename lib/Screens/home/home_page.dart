@@ -11,8 +11,8 @@ import 'package:sas_ecommerce/helper/constant.dart';
 import '../../Models/category_model.dart';
 import '../../utill/dimensions.dart';
 import '../../utill/stored_images.dart';
-import '../auth/common/title_row.dart';
-import '../category/category_screen.dart';
+import '../../helper/title_row.dart';
+import '../category/all_category_screen.dart';
 class HomePage extends StatefulWidget {
   const HomePage({Key? key}) : super(key: key);
 

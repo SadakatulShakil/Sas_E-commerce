@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:sas_ecommerce/Models/category_model.dart';
-import 'package:sas_ecommerce/Screens/auth/common/rating_bar.dart';
+import 'package:sas_ecommerce/helper/rating_bar.dart';
 
-import '../../../utill/dimensions.dart';
-import '../../../utill/stored_images.dart';
+import '../utill/dimensions.dart';
+import '../utill/stored_images.dart';
 
 class ProductWidget extends StatelessWidget {
   final Category productModel;

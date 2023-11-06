@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 
-import '../../../utill/dimensions.dart';
-import '../../../utill/stored_images.dart';
+import '../utill/dimensions.dart';
+import '../utill/stored_images.dart';
 
 class TitleRow extends StatelessWidget {
   final String? title;

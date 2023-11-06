@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 
 import '../../../helper/constant.dart';
 import '../../home/dashboard_screen.dart';
-import '../common/text_from_field.dart';
+import '../../../helper/text_from_field.dart';
 
 class SignInWidget extends StatefulWidget {
   @override

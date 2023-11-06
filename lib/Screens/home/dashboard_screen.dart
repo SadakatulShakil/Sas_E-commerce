@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:sas_ecommerce/Screens/category/category_screen.dart';
+import 'package:sas_ecommerce/Screens/category/all_category_screen.dart';
 
 import '../../utill/stored_images.dart';
 import '../more/more_screen.dart';
@@ -26,9 +26,9 @@ class DashBoardScreenState extends State<DashBoardScreen> {
     super.initState();
     _screens = [
       const HomePage(),
+      const AllCategoryScreen(),
       const OrderScreen(),
       const NotificationScreen(),
-      const AllCategoryScreen(),
       const MoreScreen(),
     ];
 

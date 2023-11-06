@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import '../../../Models/category_model.dart';
 import '../../../utill/dimensions.dart';
 import '../../../utill/stored_images.dart';
-import '../../auth/common/product_widget.dart';
+import '../../../helper/product_widget.dart';
 
 class OfferProductView extends StatefulWidget {
   final ScrollController scrollController;

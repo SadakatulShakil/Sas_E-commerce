@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 
 import '../../../utill/dimensions.dart';
 import '../../../utill/stored_images.dart';
-import '../../auth/common/rating_bar.dart';
+import '../../../helper/rating_bar.dart';
 class RecommendedProductView extends StatelessWidget {
   const RecommendedProductView({Key? key}) : super(key: key);
 
