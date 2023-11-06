@@ -22,9 +22,9 @@ class CategoryWidget extends StatelessWidget {
           borderRadius: BorderRadius.circular(Dimensions.paddingSizeSmall),
           child: FadeInImage.assetNetwork(
             fit: BoxFit.cover,
-            placeholder: Images.placeholder,
+            placeholder: category.imageAsset,
             image: category.imageAsset,
-            imageErrorBuilder: (c, o, s) => Image.asset(Images.placeholder, fit: BoxFit.cover,),
+            imageErrorBuilder: (c, o, s) => Image.asset(category.imageAsset, fit: BoxFit.cover,),
           ),
         ),
       ),

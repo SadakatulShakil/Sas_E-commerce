@@ -1,11 +1,14 @@
 import 'package:flutter/material.dart';
-import 'package:provider/provider.dart';
 import 'package:sas_ecommerce/Screens/home/widgets/banners_view.dart';
 import 'package:sas_ecommerce/Screens/home/widgets/category_view.dart';
 import 'package:sas_ecommerce/Screens/home/widgets/featured_product_view.dart';
+import 'package:sas_ecommerce/Screens/home/widgets/latest_product_view.dart';
+import 'package:sas_ecommerce/Screens/home/widgets/offer_product_view.dart';
+import 'package:sas_ecommerce/Screens/home/widgets/recommended_product_view.dart';
 import 'package:sas_ecommerce/Screens/home/widgets/top_seller_view.dart';
 import 'package:sas_ecommerce/helper/constant.dart';
 
+import '../../Models/category_model.dart';
 import '../../utill/dimensions.dart';
 import '../../utill/stored_images.dart';
 import '../auth/common/title_row.dart';
@@ -18,9 +21,19 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
-  final ScrollController _scrollController = ScrollController();
+  final scrollController  = ScrollController();
 
-
+  final List<Category> productList = [
+    Category(id: 100, name: 'Mens', imageAsset: Images.cat_men),
+    Category(id: 200, name: 'Womens', imageAsset: Images.cat_women),
+    Category(id: 103, name: 'Kids', imageAsset: Images.cat_kid),
+    Category(id: 204, name: 'Home decor', imageAsset: Images.cat_home),
+    Category(id: 500, name: 'Electronics', imageAsset: Images.cat_electronics),
+    Category(id: 603, name: 'Interior', imageAsset: Images.cat_interior),
+    Category(id: 507, name: 'Sports', imageAsset: Images.cat_sports),
+    Category(id: 618, name: 'Others', imageAsset: Images.cat_others),
+    // Add more categories as needed
+  ];
   Future<void> _loadData(bool reload) async {
   }
 
@@ -53,7 +66,7 @@ class _HomePageState extends State<HomePage> {
           child: Stack(
             children: [
               CustomScrollView(
-                controller: _scrollController,
+                controller: scrollController,
                 slivers: [
                   // App Bar
                   SliverAppBar(
@@ -175,11 +188,44 @@ class _HomePageState extends State<HomePage> {
                             }
                         ),
                           const SizedBox(height: Dimensions.paddingSizeSmall),
-                          const Padding(
-                            padding: EdgeInsets.only(bottom: Dimensions.homePagePadding),
-                            child: FeaturedProductView( isHome: true),
+                          Padding(
+                            padding: const EdgeInsets.only(bottom: Dimensions.homePagePadding),
+                            child: FeaturedProductView(scrollController: scrollController, isHome: true,),
                           ),
 
+                          /// Recommended Product
+                          const Padding(
+                            padding: EdgeInsets.only(bottom: Dimensions.homePagePadding),
+                            child: RecommendedProductView(),
+                          ),
+
+                          /// Latest Products
+
+                          TitleRow(title: 'Latest Products',
+                              onTap: () {
+                                // Navigator.push(context, MaterialPageRoute(builder: (_) =>
+                                //     AllProductScreen(productType: ProductType.featuredProduct)));
+                              }
+                          ),
+                          const SizedBox(height: Dimensions.paddingSizeSmall),
+                          Padding(
+                            padding: const EdgeInsets.only(bottom: Dimensions.homePagePadding),
+                            child: LatestProductView(scrollController: scrollController, isHome: true,),
+                          ),
+
+                          /// Offer Products
+
+                          TitleRow(title: 'Offer Products',
+                              onTap: () {
+                                // Navigator.push(context, MaterialPageRoute(builder: (_) =>
+                                //     AllProductScreen(productType: ProductType.featuredProduct)));
+                              }
+                          ),
+                          const SizedBox(height: Dimensions.paddingSizeSmall),
+                          Padding(
+                            padding: const EdgeInsets.only(bottom: Dimensions.homePagePadding),
+                            child: OfferProductView(scrollController: scrollController, isHome: true,),
+                          ),
                         ],
                       ),
                     ),

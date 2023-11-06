@@ -59,9 +59,9 @@ class _SellerCardState extends State<SellerCard> {
                     borderRadius: const BorderRadius.all(Radius.circular(Dimensions.paddingSizeExtraSmall)),
                     child: FadeInImage.assetNetwork(
                       fit: BoxFit.cover,
-                      placeholder: Images.placeholder,
+                      placeholder: widget.sellerModel.imageAsset,
                       image: widget.sellerModel.imageAsset,
-                      imageErrorBuilder: (c, o, s) => Image.asset(Images.placeholder_1x1, fit: BoxFit.cover,),
+                      imageErrorBuilder: (c, o, s) => Image.asset(widget.sellerModel.imageAsset, fit: BoxFit.cover,),
                     ),
                   ),
                 ),

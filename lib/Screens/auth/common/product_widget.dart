@@ -25,7 +25,7 @@ class ProductWidget extends StatelessWidget {
         margin: const EdgeInsets.all(5),
         decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(10),
-          color: Theme.of(context).highlightColor,
+          color: Colors.white,
           boxShadow: [BoxShadow(color: Colors.grey.withOpacity(0.2), spreadRadius: 1, blurRadius: 5)],
         ),
         child: Stack(children: [
@@ -34,16 +34,15 @@ class ProductWidget extends StatelessWidget {
             Container(
               height: 150,
               decoration: BoxDecoration(
-                color: Colors.grey,
                 borderRadius: const BorderRadius.only(topLeft: Radius.circular(10), topRight: Radius.circular(10)),
               ),
               child: ClipRRect(
                 borderRadius: const BorderRadius.only(topLeft: Radius.circular(10), topRight: Radius.circular(10)),
                 child: FadeInImage.assetNetwork(
-                  placeholder: Images.placeholder, fit: BoxFit.cover,
+                  placeholder: productModel.imageAsset, fit: BoxFit.cover,
                   height: MediaQuery.of(context).size.width/2.45,
                   image: productModel.imageAsset,
-                  imageErrorBuilder: (c, o, s) => Image.asset(Images.placeholder_1x1,
+                  imageErrorBuilder: (c, o, s) => Image.asset(productModel.imageAsset,
                       fit: BoxFit.cover,height: MediaQuery.of(context).size.width/2.45),
                 ),
               ),
@@ -79,7 +78,7 @@ class ProductWidget extends StatelessWidget {
                     ]),
                     const SizedBox(height: Dimensions.paddingSizeExtraSmall),
 
-                    Text(productModel.id.toString(),
+                    Text('৳ '+productModel.id.toString(),
                       style: TextStyle(color: Colors.green),
                     ),
 

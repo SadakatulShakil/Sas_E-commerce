@@ -5,17 +5,17 @@ import '../../../utill/dimensions.dart';
 import '../../../utill/stored_images.dart';
 import '../../auth/common/product_widget.dart';
 
-class FeaturedProductView extends StatefulWidget {
+class OfferProductView extends StatefulWidget {
   final ScrollController scrollController;
   final bool isHome;
 
-  const FeaturedProductView({Key? key, required this.scrollController, required this.isHome}) : super(key: key);
+  const OfferProductView({Key? key, required this.scrollController, required this.isHome}) : super(key: key);
 
   @override
-  _FeaturedProductViewState createState() => _FeaturedProductViewState();
+  _OfferProductViewState createState() => _OfferProductViewState();
 }
 
-class _FeaturedProductViewState extends State<FeaturedProductView> {
+class _OfferProductViewState extends State<OfferProductView> {
   final List<Category> productList = [
     Category(id: 100, name: 'Mens', imageAsset: Images.cat_men),
     Category(id: 200, name: 'Womens', imageAsset: Images.cat_women),
