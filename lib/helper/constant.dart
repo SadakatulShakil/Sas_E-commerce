@@ -1,13 +1,14 @@
 import 'package:flutter/cupertino.dart';
 
-Color lightgreenshede = Color(0xFFF0FAF6);
-Color lightgreenshede1 = Color(0xFFB2D9CC);
-Color greenshede0 = Color(0xFF66A690);
-Color greenshede1 = Color(0xFF93C9B5);
-Color primarygreen = Color(0xFF1E3A34);
-Color icongreen = Color(0xFF07A149);
-Color grayshade = Color(0xFF93B3AA);
-Color colorAcent = Color(0xFF78C2A7);
-Color cyanColor = Color(0xFF6D7E6E);
+Color lightgreenshede = Color(0xFFFCCCE6);
+Color lightgreenshede1 = Color(0xFFF995C2);
+Color greenshede0 = Color(0xFFC70F64);
+Color greenshede1 = Color(0xFFEB4F8E);
+Color primarygreen = Color(0xFFA40057);
+Color grayshade = Color(0xFFD48C9E);
+Color icongreen = Color(0xFFC0226B);
+Color colorAcent = Color(0xFFE853A3);
+Color cyanColor = Color(0xFFE86E9A);
 
 const kAnimationDuration = Duration(milliseconds: 200);
+

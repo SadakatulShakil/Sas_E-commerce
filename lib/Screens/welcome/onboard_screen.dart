@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 import '../../Models/allOnBoardContent.dart';
@@ -82,7 +83,7 @@ class _OnboardScreenState extends State<OnboardScreen> {
           currentIndex < allinonboardlist.length - 1
               ? Positioned(
             bottom: MediaQuery.of(context).size.height * 0.2,
-            width: MediaQuery.of(context).size.width,
+            width: MediaQuery.of(context).size.width.w,
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
@@ -97,7 +98,7 @@ class _OnboardScreenState extends State<OnboardScreen> {
                   },
                   child: Text(
                     "Previous",
-                    style: TextStyle(fontSize: 18,  color: primarygreen),
+                    style: TextStyle(fontSize: 18.sp,  color: primarygreen),
                   ),
                   style: ElevatedButton.styleFrom(
                     primary: lightgreenshede1,
@@ -120,7 +121,7 @@ class _OnboardScreenState extends State<OnboardScreen> {
                   },
                   child: Text(
                     "Next",
-                    style: TextStyle(fontSize: 18, color: primarygreen),
+                    style: TextStyle(fontSize: 18.sp, color: primarygreen),
                   ),
                   style: ElevatedButton.styleFrom(
                     primary: lightgreenshede1,
@@ -204,7 +205,7 @@ class PageBuilderWidget extends StatelessWidget {
             title,
             style: TextStyle(
               color: primarygreen,
-              fontSize: 24,
+              fontSize: 24.sp,
               fontWeight: FontWeight.w700,
             ),
           ),
@@ -216,7 +217,7 @@ class PageBuilderWidget extends StatelessWidget {
             textAlign: TextAlign.justify,
             style: TextStyle(
               color: primarygreen,
-              fontSize: 14,
+              fontSize: 14.sp,
             ),
           ),
         ],

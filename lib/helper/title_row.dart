@@ -3,6 +3,7 @@ import 'package:flutter_svg/svg.dart';
 
 import '../utill/dimensions.dart';
 import '../utill/stored_images.dart';
+import 'constant.dart';
 
 class TitleRow extends StatelessWidget {
   final String? title;
@@ -35,7 +36,7 @@ class TitleRow extends StatelessWidget {
               padding: isFlash?  const EdgeInsets.only(left: Dimensions.paddingSizeExtraSmall):const EdgeInsets.all(0),
               child: Image.asset(Images.flashDeal, scale: 4,),
             ):const SizedBox(),
-            Text(title!, style: TextStyle(fontSize: Dimensions.fontSizeLarge, fontWeight: FontWeight.w600)),
+            Text(title!, style: TextStyle(fontSize: Dimensions.fontSizeLarge, fontWeight: FontWeight.w600, color: primarygreen)),
             const Spacer(),
             eventDuration == null
                 ? const Expanded(child: SizedBox.shrink())
@@ -64,7 +65,7 @@ class TitleRow extends StatelessWidget {
                     Images.filterImage,
                     height: Dimensions.iconSizeDefault,
                     width: Dimensions.iconSizeDefault,
-                    color: Colors.green,
+                    color: primarygreen,
                   ),
                 )
             )
@@ -130,8 +131,8 @@ class TimerBox extends StatelessWidget {
     return Container(
       width: MediaQuery.of(context).size.width/9.5,height: MediaQuery.of(context).size.width/9.5,
       decoration: BoxDecoration(
-        color: isBorder ? null : Colors.green,
-        border: isBorder ? Border.all(width: 2, color: Colors.green) : null,
+        color: isBorder ? null : primarygreen,
+        border: isBorder ? Border.all(width: 2, color: primarygreen) : null,
         borderRadius: BorderRadius.circular(3),
       ),
       child: Center(
@@ -139,12 +140,12 @@ class TimerBox extends StatelessWidget {
           children: [
             Text(time! < 10 ? '0$time' : time.toString(),
               style: TextStyle(
-                color: isBorder ? Colors.green : Theme.of(context).highlightColor,
+                color: isBorder ? primarygreen : Theme.of(context).highlightColor,
                 fontSize: Dimensions.fontSizeSmall,
               ),
             ),
             Text(day!, style: TextStyle(color: isBorder ?
-            Colors.green : Theme.of(context).highlightColor,
+            primarygreen : Theme.of(context).highlightColor,
               fontSize: Dimensions.fontSizeSmall,)),
           ],
         ),

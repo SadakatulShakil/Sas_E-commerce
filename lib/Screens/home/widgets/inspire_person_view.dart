@@ -4,8 +4,8 @@ import '../../../helper/constant.dart';
 import '../../../utill/dimensions.dart';
 import '../../../utill/stored_images.dart';
 import '../../../helper/rating_bar.dart';
-class RecommendedProductView extends StatelessWidget {
-  const RecommendedProductView({Key? key}) : super(key: key);
+class InspirePersonView extends StatelessWidget {
+  const InspirePersonView({Key? key}) : super(key: key);
 
 
   @override
@@ -30,7 +30,7 @@ class RecommendedProductView extends StatelessWidget {
               child: Column(
                 children: [
                   const SizedBox(height: Dimensions.paddingSizeSmall),
-                  Text('Recommended Product',
+                  Text('-Our Inspiration',
                     style: TextStyle(fontSize: Dimensions.fontSizeLarge,
                         fontWeight: FontWeight.w600, color: primarygreen),),
                   const SizedBox(height: Dimensions.paddingSizeSmall,),
@@ -38,29 +38,17 @@ class RecommendedProductView extends StatelessWidget {
                     children: [
                       Container(
                         width: MediaQuery.of(context).size.width,
-                        height: 260,
+                        height: 200,
                         decoration: BoxDecoration(
                             color: Theme.of(context).cardColor
-                        ),
-                      ),
-                      Positioned(
-                        bottom: 0,
-                        child: Container(
-                          width: MediaQuery.of(context).size.width-35,
-                          height: 120,
-                          decoration: BoxDecoration(
-                              borderRadius: const BorderRadius.only(bottomLeft: Radius.circular(Dimensions.paddingSizeExtraSmall),
-                                  bottomRight: Radius.circular(Dimensions.paddingSizeExtraSmall)),
-                              color: Theme.of(context).primaryColor
-                          ),
                         ),
                       ),
 
                       Positioned(
                         left: 15,
-                        top: 15,
+                        top: -10,
                         child: Column(
-                          children: [Container(width: MediaQuery.of(context).size.width/2.5,
+                          children: [Container(width: MediaQuery.of(context).size.width/2.7,
                             height: MediaQuery.of(context).size.width/2.5,
                             decoration: BoxDecoration(
                                 color: Theme.of(context).highlightColor,
@@ -69,21 +57,13 @@ class RecommendedProductView extends StatelessWidget {
                             child: ClipRRect(
                               borderRadius: const BorderRadius.all(Radius.circular(5)),
                               child: FadeInImage.assetNetwork(
-                                placeholder: Images.cat_women, fit: BoxFit.cover,
-                                image: Images.cat_women,
-                                imageErrorBuilder: (c, o, s) => Image.asset(Images.cat_women, fit: BoxFit.cover),
+                                placeholder: Images.inspireImage, fit: BoxFit.cover,
+                                image: Images.inspireImage,
+                                imageErrorBuilder: (c, o, s) => Image.asset(Images.inspireImage, fit: BoxFit.cover),
                               ),
                             ),
                           ),
-                            Container(width: MediaQuery.of(context).size.width/2.5,
-                                padding: const EdgeInsets.only(left: 2,top: 10),
-                                child: Center(
-                                  child: Text('Ladies Item',maxLines: 2,
-                                      textAlign: TextAlign.center,
-                                      overflow: TextOverflow.ellipsis,
-                                      style: TextStyle(color: Theme.of(context).cardColor,
-                                          fontSize: Dimensions.fontSizeDefault)),
-                                )),
+
                           ],
                         ),
                       ),
@@ -95,35 +75,26 @@ class RecommendedProductView extends StatelessWidget {
                           Center(
                             child: Column(mainAxisAlignment: MainAxisAlignment.center,crossAxisAlignment: CrossAxisAlignment.center,
                               children: [
-                                Text('1 out of 5',
+                                Text('ফাতেমা মজুমদার',
                                     style: TextStyle(fontSize: Dimensions.fontSizeLarge)),
-                                Row(mainAxisAlignment: MainAxisAlignment.center,crossAxisAlignment: CrossAxisAlignment.center,
-                                  children: [
-                                    RatingBar(rating: 0, size: 18,),
-                                    Text('0')
-                                  ],
-                                ),
-
                                 const SizedBox(height: Dimensions.paddingSizeExtraSmall),
 
-                                Text('৳ '+'654',
+                                Text('অনার অফ তৃপ্তি বাহার',
                                   style: TextStyle(color: primarygreen),
                                 ),
 
                               ],),
                           ),),
                       ),
-
-
                       Positioned(
-                        right: 25,bottom: 70,
+                        right: 25,bottom: 20,
                         child: Container(width: 110,height: 35,
                           decoration: BoxDecoration(
                             borderRadius: const BorderRadius.all(Radius.circular(Dimensions.paddingSizeExtraSmall)),
                             color: Theme.of(context).cardColor.withOpacity(.25),
                           ),
-                          child: Center(child: Text('Buy Now',
-                            style: TextStyle(color: Theme.of(context).cardColor),)),),
+                          child: Center(child: Text('Explore now>>',
+                            style: TextStyle(color: Theme.of(context).primaryColor),)),),
                       ),
 
 

@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:sas_ecommerce/Screens/home/widgets/banners_view.dart';
 import 'package:sas_ecommerce/Screens/home/widgets/category_view.dart';
 import 'package:sas_ecommerce/Screens/home/widgets/featured_product_view.dart';
+import 'package:sas_ecommerce/Screens/home/widgets/inspire_person_view.dart';
 import 'package:sas_ecommerce/Screens/home/widgets/latest_product_view.dart';
 import 'package:sas_ecommerce/Screens/home/widgets/offer_product_view.dart';
 import 'package:sas_ecommerce/Screens/home/widgets/recommended_product_view.dart';
@@ -161,6 +162,12 @@ class _HomePageState extends State<HomePage> {
                           const Padding(
                             padding: EdgeInsets.only(bottom: Dimensions.homePagePadding),
                             child: CategoryView(isHomePage: true),
+                          ),
+
+                          /// Inspire Person
+                          const Padding(
+                            padding: EdgeInsets.only(bottom: Dimensions.homePagePadding),
+                            child: InspirePersonView(),
                           ),
 
                          /// top seller

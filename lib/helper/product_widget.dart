@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:sas_ecommerce/Models/category_model.dart';
+import 'package:sas_ecommerce/helper/constant.dart';
 import 'package:sas_ecommerce/helper/rating_bar.dart';
 
 import '../utill/dimensions.dart';
@@ -79,7 +80,7 @@ class ProductWidget extends StatelessWidget {
                     const SizedBox(height: Dimensions.paddingSizeExtraSmall),
 
                     Text('৳ '+productModel.id.toString(),
-                      style: TextStyle(color: Colors.green),
+                      style: TextStyle(color: primarygreen),
                     ),
 
                   ],

@@ -2,14 +2,32 @@ import 'package:flutter/material.dart';
 
 class ColorResources {
 
-  Color lightgreenshede = Color(0xFFF0FAF6);
-  Color lightgreenshede1 = Color(0xFFB2D9CC);
-  Color greenshede0 = Color(0xFF66A690);
-  Color greenshede1 = Color(0xFF93C9B5);
-  Color primarygreen = Color(0xFF1E3A34);
-  Color grayshade = Color(0xFF93B3AA);
-  Color colorAcent = Color(0xFF78C2A7);
-  Color cyanColor = Color(0xFF6D7E6E);
+  Color lightgreenshede = Color(0xFFFCCCE6);
+  Color lightgreenshede1 = Color(0xFFF995C2);
+  Color greenshede0 = Color(0xFFC70F64);
+  Color greenshede1 = Color(0xFFEB4F8E);
+  Color primarygreen = Color(0xFFA40057);
+  Color grayshade = Color(0xFFD48C9E);
+  Color colorAcent = Color(0xFFE853A3);
+  Color cyanColor = Color(0xFFE86E9A);
+
+  // Color lightgreenshede = Color(0xFFF0FAF6);
+  // Color lightgreenshede1 = Color(0xFFB2D9CC);
+  // Color greenshede0 = Color(0xFF66A690);
+  // Color greenshede1 = Color(0xFF93C9B5);
+  // Color primarygreen = Color(0xFF1E3A34);
+  // Color grayshade = Color(0xFF93B3AA);
+  // Color colorAcent = Color(0xFF78C2A7);
+  // Color cyanColor = Color(0xFF6D7E6E);
+  //
+  // Color lightshade = Color(0xFFFCCCE6);
+  // Color lightshade1 = Color(0xFFF995C2);
+  // Color shede0 = Color(0xFFC70F64);
+  // Color shede1 = Color(0xFFEB4F8E);
+  // Color darkshade = Color(0xFFA40057);
+  // Color grayshade2 = Color(0xFFD48C9E);
+  // Color accentColor = Color(0xFFE853A3);
+  // Color cyanColor2 = Color(0xFFE86E9A);
 
   static const kAnimationDuration = Duration(milliseconds: 200);
 

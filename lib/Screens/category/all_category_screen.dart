@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:sas_ecommerce/helper/constant.dart';
 
 import '../../Models/category_model.dart';
 import '../../Models/sub_category_model.dart';
@@ -264,7 +265,7 @@ class CategoryItem extends StatelessWidget {
       margin: const EdgeInsets.symmetric(vertical: Dimensions.paddingSizeExtraSmall, horizontal: 2),
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(10),
-        color: isSelected ? Colors.green : null,
+        color: isSelected ? primarygreen : null,
       ),
       child: Center(
         child: Column(mainAxisAlignment: MainAxisAlignment.spaceEvenly, children: [

@@ -16,7 +16,7 @@ class AuthScreen extends StatelessWidget {
             SizedBox(height:50,),
             Image.asset(
               'assets/images/logo.png', // replace with your logo image asset
-              height: 80,
+              height: 100,
             ),
             SizedBox(height:35,),
             Padding(
@@ -60,7 +60,7 @@ class _MyBoxPainter extends BoxPainter {
   void paint(Canvas canvas, Offset offset, ImageConfiguration configuration) {
     final rect = offset & configuration.size!;
     final Paint paint = Paint();
-    paint.color = greenshede0; // Set the color of the selected tab indicator
+    paint.color = greenshede1; // Set the color of the selected tab indicator
     paint.style = PaintingStyle.fill;
     paint.strokeWidth = 1.0;
 
