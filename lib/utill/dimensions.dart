@@ -43,4 +43,5 @@ class Dimensions {
   static const double profileImageSize = 100.0;
   static const double logoHeight = 80.0;
   static const double cardHeight = 260.0;
+  static const double messageCardHeight = 200.0;
 }

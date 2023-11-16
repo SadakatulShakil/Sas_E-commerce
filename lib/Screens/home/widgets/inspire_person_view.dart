@@ -24,14 +24,14 @@ class InspirePersonView extends StatelessWidget {
             child: Container(
               decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(10),
-                color: Colors.white,
+                color: lightgreenshede,
                 boxShadow: [BoxShadow(color: Colors.grey.withOpacity(0.2), spreadRadius: 1, blurRadius: 5)],
               ),
               child: Column(
                 children: [
                   const SizedBox(height: Dimensions.paddingSizeSmall),
                   Text('-Our Inspiration',
-                    style: TextStyle(fontSize: Dimensions.fontSizeLarge,
+                    style: TextStyle(fontSize: Dimensions.fontSizeExtraLarge,
                         fontWeight: FontWeight.w600, color: primarygreen),),
                   const SizedBox(height: Dimensions.paddingSizeSmall,),
                   Stack(
@@ -39,36 +39,19 @@ class InspirePersonView extends StatelessWidget {
                       Container(
                         width: MediaQuery.of(context).size.width,
                         height: 200,
-                        decoration: BoxDecoration(
-                            color: Theme.of(context).cardColor
-                        ),
                       ),
 
                       Positioned(
                         left: 15,
-                        top: -10,
-                        child: Column(
-                          children: [Container(width: MediaQuery.of(context).size.width/2.7,
-                            height: MediaQuery.of(context).size.width/2.5,
-                            decoration: BoxDecoration(
-                                color: Theme.of(context).highlightColor,
-                                border: Border.all(color: Theme.of(context).primaryColor.withOpacity(.20),width: .5),
-                                borderRadius: const BorderRadius.all(Radius.circular(5))),
-                            child: ClipRRect(
-                              borderRadius: const BorderRadius.all(Radius.circular(5)),
-                              child: FadeInImage.assetNetwork(
-                                placeholder: Images.inspireImage, fit: BoxFit.cover,
-                                image: Images.inspireImage,
-                                imageErrorBuilder: (c, o, s) => Image.asset(Images.inspireImage, fit: BoxFit.cover),
-                              ),
-                            ),
-                          ),
-
-                          ],
+                        top: 10,
+                        child:  CircleAvatar(
+                          radius: 70, // Adjusted the radius to match the outer CircleAvatar
+                          backgroundColor: Colors.deepPurple,
+                          backgroundImage: AssetImage(Images.inspireImage),
                         ),
                       ),
 
-                      Positioned(right: 0,top: 0,
+                      Positioned(right: 10,top: 0,
                         child: SizedBox(width: MediaQuery.of(context).size.width/2.5,
                           height: MediaQuery.of(context).size.width/2.5,
                           child:

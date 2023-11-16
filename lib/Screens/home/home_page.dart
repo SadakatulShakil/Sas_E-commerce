@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:sas_ecommerce/Screens/home/widgets/achievement_view.dart';
 import 'package:sas_ecommerce/Screens/home/widgets/banners_view.dart';
 import 'package:sas_ecommerce/Screens/home/widgets/category_view.dart';
+import 'package:sas_ecommerce/Screens/home/widgets/client_opinion_view.dart';
 import 'package:sas_ecommerce/Screens/home/widgets/featured_product_view.dart';
 import 'package:sas_ecommerce/Screens/home/widgets/inspire_person_view.dart';
 import 'package:sas_ecommerce/Screens/home/widgets/latest_product_view.dart';
@@ -186,29 +188,23 @@ class _HomePageState extends State<HomePage> {
                             child: TopSellerView(isHomePage: true),
                           ),
 
-                          /// Featured Products
+                          /// Client messages
 
-                        TitleRow(title: 'Featured Products',
-                            onTap: () {
-                              // Navigator.push(context, MaterialPageRoute(builder: (_) =>
-                              //     AllProductScreen(productType: ProductType.featuredProduct)));
-                            }
-                        ),
+                          TitleRow(title: 'Our Client Opinion',
+                              onTap: () {
+                                // Navigator.push(context, MaterialPageRoute(builder: (_) =>
+                                //     AllProductScreen(productType: ProductType.featuredProduct)));
+                              }
+                          ),
                           const SizedBox(height: Dimensions.paddingSizeSmall),
                           Padding(
                             padding: const EdgeInsets.only(bottom: Dimensions.homePagePadding),
-                            child: FeaturedProductView(scrollController: scrollController, isHome: true,),
-                          ),
-
-                          /// Recommended Product
-                          const Padding(
-                            padding: EdgeInsets.only(bottom: Dimensions.homePagePadding),
-                            child: RecommendedProductView(),
+                            child: ClientOpinionView(scrollController: scrollController, isHome: true,),
                           ),
 
                           /// Latest Products
 
-                          TitleRow(title: 'Latest Products',
+                          TitleRow(title: 'Best Selling Products',
                               onTap: () {
                                 // Navigator.push(context, MaterialPageRoute(builder: (_) =>
                                 //     AllProductScreen(productType: ProductType.featuredProduct)));
@@ -220,9 +216,14 @@ class _HomePageState extends State<HomePage> {
                             child: LatestProductView(scrollController: scrollController, isHome: true,),
                           ),
 
-                          /// Offer Products
 
-                          TitleRow(title: 'Offer Products',
+                          ///second banner
+                          BannersView(),
+                          const SizedBox(height: Dimensions.homePagePadding),
+
+                          /// achievements
+
+                          TitleRow(title: 'Our Seller Achievements',
                               onTap: () {
                                 // Navigator.push(context, MaterialPageRoute(builder: (_) =>
                                 //     AllProductScreen(productType: ProductType.featuredProduct)));
@@ -231,8 +232,42 @@ class _HomePageState extends State<HomePage> {
                           const SizedBox(height: Dimensions.paddingSizeSmall),
                           Padding(
                             padding: const EdgeInsets.only(bottom: Dimensions.homePagePadding),
-                            child: OfferProductView(scrollController: scrollController, isHome: true,),
+                            child: AchievementView(scrollController: scrollController, isHome: true,),
                           ),
+
+                          /// Recommended Product
+                          Padding(
+                            padding: EdgeInsets.only(bottom: Dimensions.homePagePadding),
+                            child: RecommendedProductView(scrollController: scrollController, isHome: true,),
+                          ),
+
+                          // /// Featured Products
+                          //
+                          // TitleRow(title: 'Featured Products',
+                          //     onTap: () {
+                          //       // Navigator.push(context, MaterialPageRoute(builder: (_) =>
+                          //       //     AllProductScreen(productType: ProductType.featuredProduct)));
+                          //     }
+                          // ),
+                          // const SizedBox(height: Dimensions.paddingSizeSmall),
+                          // Padding(
+                          //   padding: const EdgeInsets.only(bottom: Dimensions.homePagePadding),
+                          //   child: FeaturedProductView(scrollController: scrollController, isHome: true,),
+                          // ),
+                          //
+                          // /// Offer Products
+                          //
+                          // TitleRow(title: 'Offer Products',
+                          //     onTap: () {
+                          //       // Navigator.push(context, MaterialPageRoute(builder: (_) =>
+                          //       //     AllProductScreen(productType: ProductType.featuredProduct)));
+                          //     }
+                          // ),
+                          // const SizedBox(height: Dimensions.paddingSizeSmall),
+                          // Padding(
+                          //   padding: const EdgeInsets.only(bottom: Dimensions.homePagePadding),
+                          //   child: OfferProductView(scrollController: scrollController, isHome: true,),
+                          // ),
                         ],
                       ),
                     ),

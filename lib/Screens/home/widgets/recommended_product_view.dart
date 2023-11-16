@@ -1,12 +1,33 @@
 import 'package:flutter/material.dart';
-
+import '../../../Models/category_model.dart';
 import '../../../helper/constant.dart';
+import '../../../helper/review_product_widget.dart';
 import '../../../utill/dimensions.dart';
 import '../../../utill/stored_images.dart';
 import '../../../helper/rating_bar.dart';
-class RecommendedProductView extends StatelessWidget {
-  const RecommendedProductView({Key? key}) : super(key: key);
 
+class RecommendedProductView extends StatefulWidget {
+  final ScrollController scrollController;
+  final bool isHome;
+
+  const RecommendedProductView({Key? key,  required this.scrollController, required this.isHome}) : super(key: key);
+
+  @override
+  _RecommendedProductViewState createState() => _RecommendedProductViewState();
+}
+
+class _RecommendedProductViewState extends State<RecommendedProductView> {
+  final List<Category> productList = [
+    Category(id: 100, name: 'Mens', imageAsset: Images.cat_men),
+    Category(id: 200, name: 'Womens', imageAsset: Images.cat_women),
+    Category(id: 103, name: 'Kids', imageAsset: Images.cat_kid),
+    Category(id: 204, name: 'Home decor', imageAsset: Images.cat_home),
+    Category(id: 500, name: 'Electronics', imageAsset: Images.cat_electronics),
+    Category(id: 603, name: 'Interior', imageAsset: Images.cat_interior),
+    Category(id: 507, name: 'Sports', imageAsset: Images.cat_sports),
+    Category(id: 618, name: 'Others', imageAsset: Images.cat_others),
+    // Add more categories as needed
+  ];
 
   @override
   Widget build(BuildContext context) {
@@ -24,120 +45,90 @@ class RecommendedProductView extends StatelessWidget {
             child: Container(
               decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(10),
-                color: Colors.white,
+                color: lightgreenshede,
                 boxShadow: [BoxShadow(color: Colors.grey.withOpacity(0.2), spreadRadius: 1, blurRadius: 5)],
               ),
               child: Column(
                 children: [
                   const SizedBox(height: Dimensions.paddingSizeSmall),
-                  Text('Recommended Product',
-                    style: TextStyle(fontSize: Dimensions.fontSizeLarge,
-                        fontWeight: FontWeight.w600, color: primarygreen),),
+                  Text(
+                    '-Best Review',
+                    style: TextStyle(fontSize: Dimensions.fontSizeExtraLarge, fontWeight: FontWeight.w600, color: primarygreen),
+                  ),
                   const SizedBox(height: Dimensions.paddingSizeSmall,),
                   Stack(
                     children: [
                       Container(
                         width: MediaQuery.of(context).size.width,
                         height: 260,
-                        decoration: BoxDecoration(
-                            color: Theme.of(context).cardColor
-                        ),
                       ),
                       Positioned(
                         bottom: 0,
                         child: Container(
-                          width: MediaQuery.of(context).size.width-35,
+                          width: MediaQuery.of(context).size.width - 35,
                           height: 120,
                           decoration: BoxDecoration(
                               borderRadius: const BorderRadius.only(bottomLeft: Radius.circular(Dimensions.paddingSizeExtraSmall),
                                   bottomRight: Radius.circular(Dimensions.paddingSizeExtraSmall)),
-                              color: Theme.of(context).primaryColor
                           ),
-                        ),
-                      ),
-
-                      Positioned(
-                        left: 15,
-                        top: 15,
-                        child: Column(
-                          children: [Container(width: MediaQuery.of(context).size.width/2.5,
-                            height: MediaQuery.of(context).size.width/2.5,
-                            decoration: BoxDecoration(
-                                color: Theme.of(context).highlightColor,
-                                border: Border.all(color: Theme.of(context).primaryColor.withOpacity(.20),width: .5),
-                                borderRadius: const BorderRadius.all(Radius.circular(5))),
-                            child: ClipRRect(
-                              borderRadius: const BorderRadius.all(Radius.circular(5)),
-                              child: FadeInImage.assetNetwork(
-                                placeholder: Images.cat_women, fit: BoxFit.cover,
-                                image: Images.cat_women,
-                                imageErrorBuilder: (c, o, s) => Image.asset(Images.cat_women, fit: BoxFit.cover),
+                          child: Padding(
+                            padding: const EdgeInsets.only(top: Dimensions.homePagePadding),
+                            child: Container(
+                              height: Dimensions.cardHeight,
+                              child: ListView.builder(
+                                controller: widget.scrollController,
+                                scrollDirection: Axis.horizontal,
+                                itemCount: productList.length,
+                                itemBuilder: (ctx, index) {
+                                  return SizedBox(
+                                    width: (MediaQuery.of(context).size.width / 4),
+                                    child: ReviewProductWidget(productModel: productList[index]),
+                                  );
+                                },
                               ),
                             ),
                           ),
-                            Container(width: MediaQuery.of(context).size.width/2.5,
-                                padding: const EdgeInsets.only(left: 2,top: 10),
-                                child: Center(
-                                  child: Text('Ladies Item',maxLines: 2,
-                                      textAlign: TextAlign.center,
-                                      overflow: TextOverflow.ellipsis,
-                                      style: TextStyle(color: Theme.of(context).cardColor,
-                                          fontSize: Dimensions.fontSizeDefault)),
-                                )),
+                        ),
+                      ),
+                      Positioned(
+                        left: 15,
+                        top: -.3,
+                        child: Column(
+                          children: [
+                            CircleAvatar(
+                              radius: 70, // Adjusted the radius to match the outer CircleAvatar
+                              backgroundColor: Colors.deepPurple,
+                              backgroundImage: AssetImage(Images.best_review),
+                            ),
                           ],
                         ),
                       ),
-
-                      Positioned(right: 0,top: 0,
+                      Positioned(right: 10,top: 0,
                         child: SizedBox(width: MediaQuery.of(context).size.width/2.5,
                           height: MediaQuery.of(context).size.width/2.5,
                           child:
                           Center(
                             child: Column(mainAxisAlignment: MainAxisAlignment.center,crossAxisAlignment: CrossAxisAlignment.center,
                               children: [
-                                Text('1 out of 5',
+                                Text('ফাতেমা মজুমদার',
                                     style: TextStyle(fontSize: Dimensions.fontSizeLarge)),
-                                Row(mainAxisAlignment: MainAxisAlignment.center,crossAxisAlignment: CrossAxisAlignment.center,
-                                  children: [
-                                    RatingBar(rating: 0, size: 18,),
-                                    Text('0')
-                                  ],
-                                ),
-
                                 const SizedBox(height: Dimensions.paddingSizeExtraSmall),
 
-                                Text('৳ '+'654',
+                                Text('অনার অফ তৃপ্তি বাহার',
                                   style: TextStyle(color: primarygreen),
                                 ),
 
                               ],),
                           ),),
                       ),
-
-
-                      Positioned(
-                        right: 25,bottom: 70,
-                        child: Container(width: 110,height: 35,
-                          decoration: BoxDecoration(
-                            borderRadius: const BorderRadius.all(Radius.circular(Dimensions.paddingSizeExtraSmall)),
-                            color: Theme.of(context).cardColor.withOpacity(.25),
-                          ),
-                          child: Center(child: Text('Buy Now',
-                            style: TextStyle(color: Theme.of(context).cardColor),)),),
-                      ),
-
-
                     ],
                   ),
                 ],
               ),
             ),
           ),
-        )
+        ),
       ],
     );
   }
-
-
 }
-

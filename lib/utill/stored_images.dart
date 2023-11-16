@@ -108,4 +108,12 @@ class Images {
   static const String shop4 = 'assets/images/shop4.jpg';
   static const String shop5 = 'assets/images/shop5.jpg';
   static const String shop6 = 'assets/images/shop6.jpg';
+
+  ///client messages
+  static const String client_message = 'assets/images/client_message.png';
+  static const String ispire_image = 'assets/images/inspire.png';
+  static const String achievement1 = 'assets/images/achievement1.png';
+  static const String achievement2 = 'assets/images/achievement2.png';
+  static const String achievement3 = 'assets/images/achievement3.png';
+  static const String best_review = 'assets/images/best_review.png';
 }
