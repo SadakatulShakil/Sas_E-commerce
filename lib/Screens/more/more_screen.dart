@@ -43,7 +43,7 @@ class _MoreScreenState extends State<MoreScreen> {
       body: Stack(children: [
         Positioned(top: 0, left: 0, right: 0,
           child: Image.asset(Images.morePageHeader,
-            height: 150, fit: BoxFit.fill,
+            height: 180, fit: BoxFit.fill,
             color: lightgreenshede1,
           ),
         ),
@@ -54,7 +54,7 @@ class _MoreScreenState extends State<MoreScreen> {
           child: Row(
               children: [
             Padding(padding: const EdgeInsets.only(top: Dimensions.paddingSizeLarge),
-              child: Image.asset(Images.logoWithNameImageWhite, height: 50),
+              child: Image.asset(Images.logoWithNameImageWhite, height: 35),
             ),
             const Expanded(child: SizedBox.shrink()),
             Padding(
@@ -85,7 +85,7 @@ class _MoreScreenState extends State<MoreScreen> {
 
 
         Container(
-          margin: const EdgeInsets.only(top: 120),
+          margin: const EdgeInsets.only(top: 140),
           decoration: BoxDecoration(
             color: Colors.white,
             borderRadius: const BorderRadius.only(topLeft: Radius.circular(20), topRight: Radius.circular(20)),

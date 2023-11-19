@@ -44,7 +44,7 @@ class _AllCategoryScreenState extends State<AllCategoryScreen> {
     ];
     List<SubCategory> filterList = subCategoryList.where((element) => element.parent_id == selectedCatIndex+1).toList();
     return Scaffold(
-      backgroundColor: Colors.white,
+        backgroundColor: Colors.grey.shade100,
       body: Column(
         children: [
           CustomAppBar(title: 'Categories', isBackButtonExist: widget.backExits),

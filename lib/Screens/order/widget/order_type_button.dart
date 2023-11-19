@@ -1,32 +1,25 @@
-import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
+import 'package:sas_ecommerce/helper/constant.dart';
+class CustomOrderButton extends StatelessWidget {
+  final String text;
+  final bool isSelected;
+  final VoidCallback onTap;
 
-class OrderTypeButton extends StatelessWidget {
-  final String? text;
-  final int index;
-
-  const OrderTypeButton({Key? key, required this.text, required this.index}) : super(key: key);
+  const CustomOrderButton({required this.text, required this.isSelected, required this.onTap});
 
   @override
   Widget build(BuildContext context) {
-    int selectedIndex = 0;
-    return Expanded(
-      child: TextButton(
-        onPressed: () {
-          ///order Details Task
-        selectedIndex = index;
-        },
-        style: TextButton.styleFrom(padding: const EdgeInsets.all(0)),
-        child: Container(
-          height: 40,
-          alignment: Alignment.center,
-          decoration: BoxDecoration(
-            color: selectedIndex == index ? Theme.of(context).primaryColor : Theme.of(context).highlightColor,
-            borderRadius: BorderRadius.circular(6),
-          ),
-          child: Text('${text!}(0)',
-              style: TextStyle(color: selectedIndex == index
-                  ? Colors.white : Theme.of(context).primaryColor)),
+    return InkWell(
+      onTap: onTap,
+      child: Container(
+        padding: EdgeInsets.all(16),
+        decoration: BoxDecoration(
+          color: isSelected ? lightgreenshede1 : Colors.blueGrey.shade200, // Change these colors as needed
+          borderRadius: BorderRadius.circular(8),
+        ),
+        child: Text(
+          text,
+          style: TextStyle(color: Colors.white),
         ),
       ),
     );
