@@ -61,7 +61,8 @@ class _HomePageState extends State<HomePage> {
       resizeToAvoidBottomInset: false,
       body: SafeArea(
         child: RefreshIndicator(
-          backgroundColor: Theme.of(context).primaryColor,
+          backgroundColor: greenshede1,
+          color: Colors.white,
           onRefresh: () async {
             await _loadData( true);
             //await Provider.of<FlashDealProvider>(Get.context!, listen: false).getMegaDealList(true, false);

@@ -16,6 +16,7 @@ import '../../helper/animated_custom_dialog.dart';
 import '../../helper/guest_dialog.dart';
 import '../../utill/dimensions.dart';
 import '../../utill/stored_images.dart';
+import '../profile/profile_screen.dart';
 
 class MoreScreen extends StatefulWidget {
   const MoreScreen({Key? key}) : super(key: key);
@@ -63,6 +64,7 @@ class _MoreScreenState extends State<MoreScreen> {
                   if(isGuestMode) {
                     showAnimatedDialog(context, const GuestDialog(), isFlip: true);
                   }else {
+                    Navigator.of(context).push(MaterialPageRoute(builder: (context) => const ProfileScreen()));
                     // if(Provider.of<ProfileProvider>(context, listen: false).userInfoModel != null) {
                     //   Navigator.of(context).push(MaterialPageRoute(builder: (context) => const ProfileScreen()));
                     // }
