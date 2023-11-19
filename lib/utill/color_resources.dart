@@ -2,14 +2,14 @@ import 'package:flutter/material.dart';
 
 class ColorResources {
 
-  Color lightgreenshede = Color(0xFFFCCCE6);
-  Color lightgreenshede1 = Color(0xFFF995C2);
-  Color greenshede0 = Color(0xFFC70F64);
-  Color greenshede1 = Color(0xFFEB4F8E);
-  Color primarygreen = Color(0xFFA40057);
-  Color grayshade = Color(0xFFD48C9E);
-  Color colorAcent = Color(0xFFE853A3);
-  Color cyanColor = Color(0xFFE86E9A);
+  // Color lightgreenshede = Color(0xFFFCCCE6);
+  // Color lightgreenshede1 = Color(0xFFF995C2);
+  // Color greenshede0 = Color(0xFFC70F64);
+  // Color greenshede1 = Color(0xFFEB4F8E);
+  // Color primarygreen = Color(0xFFA40057);
+  // Color grayshade = Color(0xFFD48C9E);
+  // Color colorAcent = Color(0xFFE853A3);
+  // Color cyanColor = Color(0xFFE86E9A);
 
   // Color lightgreenshede = Color(0xFFF0FAF6);
   // Color lightgreenshede1 = Color(0xFFB2D9CC);

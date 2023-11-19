@@ -8,7 +8,8 @@ import '../../utill/dimensions.dart';
 import '../../utill/stored_images.dart';
 
 class AllCategoryScreen extends StatefulWidget {
-  const AllCategoryScreen({Key? key}) : super(key: key);
+  bool backExits;
+  AllCategoryScreen({Key? key, required this.backExits}) : super(key: key);
 
   @override
   _AllCategoryScreenState createState() => _AllCategoryScreenState();
@@ -46,7 +47,7 @@ class _AllCategoryScreenState extends State<AllCategoryScreen> {
       backgroundColor: Colors.white,
       body: Column(
         children: [
-          CustomAppBar(title: 'Categories'),
+          CustomAppBar(title: 'Categories', isBackButtonExist: widget.backExits),
           Expanded(
             child: Row(
               children: [

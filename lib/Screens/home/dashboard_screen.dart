@@ -26,7 +26,7 @@ class DashBoardScreenState extends State<DashBoardScreen> {
     super.initState();
     _screens = [
       const HomePage(),
-      const AllCategoryScreen(),
+      AllCategoryScreen(backExits: false),
       const OrderScreen(),
       const NotificationScreen(),
       const MoreScreen(),

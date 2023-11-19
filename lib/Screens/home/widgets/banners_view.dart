@@ -53,9 +53,9 @@ class BannersView extends StatelessWidget {
 
   int currentIndex = 0;
   final List<String> mainBannerList = [
-    'assets/images/banner1.jpg',
+    'assets/images/banner1.png',
     'assets/images/banner2.jpg',
-    'assets/images/banner3.jpg',
+    'assets/images/banner3.png',
   ];
   @override
   Widget build(BuildContext context) {

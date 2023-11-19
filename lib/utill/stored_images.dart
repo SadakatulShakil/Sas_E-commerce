@@ -7,9 +7,10 @@ class Images {
   static const String homeImage = 'assets/images/home.png';
   static const String officeImage = 'assets/images/office.png';
   static const String logoImage = 'assets/images/logo.png';
+  static const String logoWithImage = 'assets/images/logo_icon.png';
   static const String inspireImage = 'assets/images/inspire.png';
   static const String logoWithNameImage = 'assets/images/logo_with_name.PNG';
-  static const String logoWithNameImageWhite = 'assets/images/logo_with_name_white.png';
+  static const String logoWithNameImageWhite = 'assets/images/logo.png';
   static const String messageImage = 'assets/images/inbox.png';
   static const String moreImage = 'assets/images/more.png';
   static const String shoppingImage = 'assets/images/order.png';
@@ -59,11 +60,14 @@ class Images {
   static const String safePayment = 'assets/images/safe_payment.png';
   static const String hundredParAuthentic = 'assets/images/authentic.png';
   static const String delete = 'assets/images/delete.png';
+  static const String logout = 'assets/images/logout.png';
   static const String address = 'assets/images/address.png';
   static const String dropdown = 'assets/images/dropdown.png';
   static const String placeholder_1x1 = 'assets/images/placeholder_1x1.png';
   static const String placeholder_3x1 = 'assets/images/placeholder_3x1.png';
   static const String wallet = 'assets/images/wallet.png';
+  static const String community = 'assets/images/community.png';
+  static const String blog = 'assets/images/blog.png';
   static const String loyaltyPoint  = 'assets/images/trophy.png';
   static const String loyaltyTrophy  = 'assets/images/loyalty.png';
   static const String fileDownload  = 'assets/images/cloud-download.png';
