@@ -5,6 +5,7 @@ import 'constant.dart';
 
 class GetTextFormField extends StatefulWidget {
   TextEditingController? controller;
+  FocusNode? node;
   String? hintName;
   IconData? icon;
   bool isObscureText;
@@ -13,6 +14,7 @@ class GetTextFormField extends StatefulWidget {
 
   GetTextFormField({
     this.controller,
+    this.node,
     this.hintName,
     this.icon,
     this.isObscureText = false,
@@ -39,10 +41,8 @@ class _GetTextFormFieldState extends State<GetTextFormField> {
           ),
         ),
         child: TextFormField(
-          inputFormatters: [
-            FilteringTextInputFormatter.deny(RegExp(r'[0-9]')),
-          ],
           controller: widget.controller,
+          focusNode: widget.node,
           obscureText: widget.isObscureText,
           keyboardType: widget.inputType,
           onChanged: widget.onChangeText,

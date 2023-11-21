@@ -1,194 +1,242 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:get/get_core/src/get_main.dart';
+import 'package:sas_ecommerce/Models/address_model.dart';
+import 'package:sas_ecommerce/Screens/address/address_list_screen.dart';
+import 'package:sas_ecommerce/Screens/address/widget/address_label_button.dart';
 
-class AddressScreen extends StatelessWidget {
-  final bool isBacButtonExist;
-  const AddressScreen({Key? key, this.isBacButtonExist = true}) : super(key: key);
+import '../../helper/custom_app_bar.dart';
+import '../../helper/custom_button.dart';
+import '../../helper/local_database/database_helper.dart';
+import '../../helper/text_from_field.dart';
+import '../../utill/dimensions.dart';
+
+class AddressScreen extends StatefulWidget {
+  @override
+  _AddressScreenState createState() => _AddressScreenState();
+}
+
+class _AddressScreenState extends State<AddressScreen> {
+  int selectedIndex = 0;
+  final TextEditingController _contactPersonNameController =
+      TextEditingController();
+  final TextEditingController _contactPersonNumberController =
+      TextEditingController();
+  final TextEditingController _cityController = TextEditingController();
+  final TextEditingController _zipCodeController = TextEditingController();
+  final TextEditingController _countryController = TextEditingController();
+  final TextEditingController _addressController = TextEditingController();
+  final FocusNode _addressNode = FocusNode();
+  final FocusNode _nameNode = FocusNode();
+  final FocusNode _numberNode = FocusNode();
+  final FocusNode _cityNode = FocusNode();
+  final FocusNode _zipNode = FocusNode();
+  final FocusNode _countryNode = FocusNode();
+  String selectedLabelValue = 'Shipping Address';
+
+ _addUserAddress(
+      int selectedIndex,
+      String selectedLabelValue,
+      String address,
+      String city,
+      String zip,
+      String country,
+      String contactPerson,
+      String contactNumber
+      ) async {
+
+    String? label;
+          selectedIndex == 0?
+          label = 'Home':selectedIndex == 1?
+          label = 'Work':label = 'Other';
+
+          //print('kkkkkdebug: '+label+'--'+selectedLabelValue+'--'+address+'--'+city+'--'+zip+'--'+country+'--'+contactPerson+'--'+contactNumber);
+    final addressData = AddressDataModel(
+        id: null,
+        username: 'guest',
+        label: label,
+        type: selectedLabelValue,
+        delivery_address: address,
+        city: city,
+        zip_code: zip,
+        country: country,
+        contact_person: contactPerson,
+        contact_no: contactNumber,
+    );
+    //print('datadebug: '+addressData.toString());
+
+    await DatabaseHelper.instance.insertUserData('guest', addressData);
+    Get.snackbar(
+      "Success!",
+      "Address stored successfully!",
+      snackPosition: SnackPosition.TOP,
+      backgroundColor: Colors.pinkAccent,
+      colorText: Colors.white,
+      borderRadius: 10,
+      margin: EdgeInsets.all(10),
+    );
+    Navigator.of(context).push(MaterialPageRoute(builder: (context) => AddressListScreen()));
+  }
 
   @override
   Widget build(BuildContext context) {
-   // Provider.of<NotificationProvider>(context, listen: false).initNotificationList(context);
-
     return Scaffold(
-        backgroundColor: Colors.redAccent,
-        body:
-        Center(
-          child: Text("Notification page", style: TextStyle(fontSize: 20, color: Colors.black)),
-        )
-      // Column(
-      //   children: [
-      //
-      //     CustomAppBar(title: getTranslated('CATEGORY', context)),
-      //
-      //     Expanded(child: Consumer<CategoryProvider>(
-      //       builder: (context, categoryProvider, child) {
-      //         return categoryProvider.categoryList.isNotEmpty ? Row(children: [
-      //
-      //           Container(
-      //             width: 100,
-      //             margin: const EdgeInsets.only(top: 3),
-      //             height: double.infinity,
-      //             decoration: BoxDecoration(
-      //               color: Theme.of(context).highlightColor,
-      //               boxShadow: [BoxShadow(color: Colors.grey[Provider.of<ThemeProvider>(context).darkTheme ? 700 : 200]!,
-      //                   spreadRadius: 1, blurRadius: 1)],
-      //             ),
-      //             child: ListView.builder(
-      //               physics: const BouncingScrollPhysics(),
-      //               itemCount: categoryProvider.categoryList.length,
-      //               padding: const EdgeInsets.all(0),
-      //               itemBuilder: (context, index) {
-      //                 Category category = categoryProvider.categoryList[index];
-      //                 return InkWell(
-      //                   onTap: () => Provider.of<CategoryProvider>(context, listen: false).changeSelectedIndex(index),
-      //                   child: CategoryItem(
-      //                     title: category.name,
-      //                     icon: category.icon,
-      //                     isSelected: categoryProvider.categorySelectedIndex == index,
-      //                   ),
-      //                 );
-      //
-      //               },
-      //             ),
-      //           ),
-      //
-      //           Expanded(child: ListView.builder(
-      //             padding: const EdgeInsets.all(Dimensions.paddingSizeSmall),
-      //             itemCount: categoryProvider.categoryList[categoryProvider.categorySelectedIndex!].subCategories!.length+1,
-      //             itemBuilder: (context, index) {
-      //
-      //               late SubCategory subCategory;
-      //               if(index != 0) {
-      //                 subCategory = categoryProvider.categoryList[categoryProvider.categorySelectedIndex!].subCategories![index-1];
-      //               }
-      //               if(index == 0) {
-      //                 return Ink(
-      //                   color: Theme.of(context).highlightColor,
-      //                   child: ListTile(
-      //                     title: Text(getTranslated('all', context)!, style: titilliumSemiBold, maxLines: 2, overflow: TextOverflow.ellipsis),
-      //                     trailing: const Icon(Icons.navigate_next),
-      //                     onTap: () {
-      //                       Navigator.push(context, MaterialPageRoute(builder: (_) => BrandAndCategoryProductScreen(
-      //                         isBrand: false,
-      //                         id: categoryProvider.categoryList[categoryProvider.categorySelectedIndex!].id.toString(),
-      //                         name: categoryProvider.categoryList[categoryProvider.categorySelectedIndex!].name,
-      //                       )));
-      //                     },
-      //                   ),
-      //                 );
-      //               }else if (subCategory.subSubCategories!.isNotEmpty) {
-      //                 return Ink(
-      //                   color: Theme.of(context).highlightColor,
-      //                   child: Theme(
-      //                     data: Provider.of<ThemeProvider>(context).darkTheme ? ThemeData.dark() : ThemeData.light(),
-      //                     child: ExpansionTile(
-      //                       key: Key('${Provider.of<CategoryProvider>(context).categorySelectedIndex}$index'),
-      //                       title: Text(subCategory.name!, style: titilliumSemiBold.copyWith(color: Theme.of(context).textTheme.bodyLarge!.color), maxLines: 2, overflow: TextOverflow.ellipsis),
-      //                       children: _getSubSubCategories(context, subCategory),
-      //                     ),
-      //                   ),
-      //                 );
-      //               } else {
-      //                 return Ink(
-      //                   color: Theme.of(context).highlightColor,
-      //                   child: ListTile(
-      //                     title: Text(subCategory.name!, style: titilliumSemiBold, maxLines: 2, overflow: TextOverflow.ellipsis),
-      //                     trailing: Icon(Icons.navigate_next, color: Theme.of(context).textTheme.bodyLarge!.color),
-      //                     onTap: () {
-      //                       Navigator.push(context, MaterialPageRoute(builder: (_) => BrandAndCategoryProductScreen(
-      //                         isBrand: false,
-      //                         id: subCategory.id.toString(),
-      //                         name: subCategory.name,
-      //                       )));
-      //                     },
-      //                   ),
-      //                 );
-      //               }
-      //
-      //             },
-      //           )),
-      //
-      //         ]) : Center(child: CircularProgressIndicator(valueColor: AlwaysStoppedAnimation<Color>(Theme.of(context).primaryColor)));
-      //       },
-      //     )),
-      //   ],
-      // ),
+      backgroundColor: Colors.grey.shade100,
+      body: SingleChildScrollView(
+        child: Column(
+          children: [
+            CustomAppBar(title: 'Add new Address', isBackButtonExist: true),
+            Padding(
+              padding: const EdgeInsets.all(Dimensions.paddingSizeSmall),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  CustomLabelButton(
+                    text: "Home",
+                    isSelected: selectedIndex == 0,
+                    onTap: () {
+                      setState(() {
+                        selectedIndex = 0;
+                      });
+                    },
+                  ),
+                  CustomLabelButton(
+                    text: "Office",
+                    isSelected: selectedIndex == 1,
+                    onTap: () {
+                      setState(() {
+                        selectedIndex = 1;
+                      });
+                    },
+                  ),
+                  CustomLabelButton(
+                    text: "Others",
+                    isSelected: selectedIndex == 2,
+                    onTap: () {
+                      setState(() {
+                        selectedIndex = 2;
+                      });
+                    },
+                  ),
+                ],
+              ),
+            ),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+              children: [
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    Radio(
+                      value: 'Shipping Address',
+                      groupValue: selectedLabelValue,
+                      onChanged: (value) {
+                        setState(() {
+                          selectedLabelValue = value??'null';
+                          print(selectedLabelValue);
+                        });
+                      },
+                    ),
+                    Text('Shipping Address'),
+                  ],
+                ),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    Radio(
+                      value: 'Billing Address',
+                      groupValue: selectedLabelValue,
+                      onChanged: (value) {
+                        setState(() {
+                          selectedLabelValue = value??'null';
+                          print(selectedLabelValue);
+                        });
+                      },
+                    ),
+                    Text('Billing Address'),
+                  ],
+                ),
+              ],
+            ),
+            GetTextFormField(
+              controller: _addressController,
+              node: _addressNode,
+              hintName: "Delivery Address",
+              inputType: TextInputType.text,
+            ),
+            GetTextFormField(
+              controller: _cityController,
+              node: _cityNode,
+              hintName: "City",
+              inputType: TextInputType.text,
+            ),
+            GetTextFormField(
+              controller: _zipCodeController,
+              node: _zipNode,
+              hintName: "Zip",
+              inputType: TextInputType.text,
+            ),
+            GetTextFormField(
+              controller: _countryController,
+              node: _countryNode,
+              hintName: "Country",
+              inputType: TextInputType.text,
+            ),
+            GetTextFormField(
+              controller: _contactPersonNameController,
+              node: _nameNode,
+              hintName: "Contact person",
+              inputType: TextInputType.text,
+            ),
+            GetTextFormField(
+              controller: _contactPersonNumberController,
+              node: _numberNode,
+              hintName: "Contact number",
+              inputType: TextInputType.number,
+            ),
+            Container(
+                margin: const EdgeInsets.symmetric(
+                    horizontal: Dimensions.marginSizeLarge,
+                    vertical: Dimensions.marginSizeSmall),
+                child: CustomButton(
+                    onTap: (){
+                      _addUserAddress(
+                          selectedIndex,
+                          selectedLabelValue,
+                          _addressController.text,
+                          _cityController.text,
+                          _zipCodeController.text,
+                          _countryController.text,
+                          _contactPersonNameController.text,
+                          _contactPersonNumberController.text
+                      );
+                      selectedIndex = 0;
+                      selectedLabelValue = 'Shipping Address';
+                      _addressController.text = '';
+                      _cityController.text = '';
+                      _zipCodeController.text = '';
+                      _countryController.text = '';
+                      _contactPersonNameController.text = '';
+                      _contactPersonNumberController.text ='';
+                    },
+                    buttonText: 'Add Address')),
+          ],
+        ),
+      ),
     );
-    // return Scaffold(
-    //   body: Column(children: [
-    //
-    //     CustomAppBar(title: getTranslated('notification', context), isBackButtonExist: isBacButtonExist),
-    //
-    //     Expanded(
-    //       child: Consumer<NotificationProvider>(
-    //         builder: (context, notification, child) {
-    //           return notification.notificationList != null ? notification.notificationList!.isNotEmpty ? RefreshIndicator(
-    //             backgroundColor: Theme.of(context).primaryColor,
-    //             onRefresh: () async {
-    //               await Provider.of<NotificationProvider>(context, listen: false).initNotificationList(context);
-    //             },
-    //             child: ListView.builder(
-    //               itemCount: Provider.of<NotificationProvider>(context).notificationList!.length,
-    //               padding: const EdgeInsets.symmetric(vertical: Dimensions.paddingSizeSmall),
-    //               itemBuilder: (context, index) {
-    //                 return InkWell(
-    //                   onTap:() => showDialog(context: context, builder: (context) => NotificationDialog(notificationModel: notification.notificationList![index])),
-    //                   child: Container(
-    //                     margin: const EdgeInsets.only(bottom: Dimensions.paddingSizeSmall),
-    //                     color: Theme.of(context).cardColor,
-    //                     child: ListTile(
-    //                       leading: ClipOval(child: FadeInImage.assetNetwork(
-    //                         placeholder: Images.placeholder, height: 50, width: 50, fit: BoxFit.cover,
-    //                         image: '${Provider.of<SplashProvider>(context, listen: false).baseUrls!.notificationImageUrl}/${notification.notificationList![index].image}',
-    //                         imageErrorBuilder: (c, o, s) => Image.asset(Images.placeholder, height: 50, width: 50, fit: BoxFit.cover),
-    //                       )),
-    //                       title: Text(notification.notificationList![index].title!, style: titilliumRegular.copyWith(
-    //                         fontSize: Dimensions.fontSizeSmall,
-    //                       )),
-    //                       subtitle: Text(DateConverter.localDateToIsoStringAMPM(DateTime.parse(notification.notificationList![index].createdAt!)),
-    //                         style: titilliumRegular.copyWith(fontSize: Dimensions.fontSizeExtraSmall, color: ColorResources.getHint(context)),
-    //                       ),
-    //                     ),
-    //                   ),
-    //                 );
-    //               },
-    //             ),
-    //           ) : const NoInternetOrDataScreen(isNoInternet: false) : const NotificationShimmer();
-    //         },
-    //       ),
-    //     ),
-    //
-    //   ]),
-    // );
+  }
+
+  Widget buildRadioButton(String label, String value,
+      {required ValueChanged<String?> onChanged}) {
+    return Row(
+      children: [
+        Radio<String>(
+          value: '',
+          groupValue: value,
+          onChanged: onChanged,
+        ),
+        Text(label),
+      ],
+    );
   }
 }
-//
-// class NotificationShimmer extends StatelessWidget {
-//   const NotificationShimmer({Key? key}) : super(key: key);
-//
-//   @override
-//   Widget build(BuildContext context) {
-//     return ListView.builder(
-//       itemCount: 10,
-//       padding: const EdgeInsets.all(0),
-//       itemBuilder: (context, index) {
-//         return Container(
-//           height: 80,
-//           margin: const EdgeInsets.only(bottom: Dimensions.paddingSizeSmall),
-//           color: ColorResources.getGrey(context),
-//           alignment: Alignment.center,
-//           child: Shimmer.fromColors(
-//             baseColor: Colors.grey[300]!,
-//             highlightColor: Colors.grey[100]!,
-//             enabled: Provider.of<NotificationProvider>(context).notificationList == null,
-//             child: ListTile(
-//               leading: const CircleAvatar(child: Icon(Icons.notifications)),
-//               title: Container(height: 20, color: ColorResources.white),
-//               subtitle: Container(height: 10, width: 50, color: ColorResources.white),
-//             ),
-//           ),
-//         );
-//       },
-//     );
-//   }
-// }
-

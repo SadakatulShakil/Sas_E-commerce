@@ -16,6 +16,7 @@ import '../../helper/animated_custom_dialog.dart';
 import '../../helper/guest_dialog.dart';
 import '../../utill/dimensions.dart';
 import '../../utill/stored_images.dart';
+import '../address/address_list_screen.dart';
 import '../profile/profile_screen.dart';
 
 class MoreScreen extends StatefulWidget {
@@ -130,28 +131,28 @@ class _MoreScreenState extends State<MoreScreen> {
 
                   // Buttons
                   TitleButton(image: Images.address, title: 'Address',
-                      navigateTo: const AddressScreen()),
+                      navigateTo: AddressListScreen()),
 
                   TitleButton(image: Images.settings, title: 'Settings',
-                      navigateTo: const SettingsScreen()),
+                      navigateTo: SettingsScreen()),
 
                   TitleButton(image: Images.termCondition, title: 'Terms & Condition',
-                      navigateTo: const TermsAndConditionScreen()),
+                      navigateTo: TermsAndConditionScreen()),
 
                   TitleButton(image: Images.privacyPolicy, title: 'Privacy Plolicy',
-                      navigateTo: const PrivacyPolicyScreen()),
+                      navigateTo: PrivacyPolicyScreen()),
 
                   TitleButton(image: Images.refundPolicy, title: 'Refund Policy',
-                      navigateTo: const RefundPolicyScreen()),
+                      navigateTo: RefundPolicyScreen()),
 
                   TitleButton(image: Images.helpCenter, title: 'FAQ',
-                      navigateTo: const FaqScreen()),
+                      navigateTo: FaqScreen()),
 
                   TitleButton(image: Images.aboutUs, title: 'About Us',
-                      navigateTo: const AboutUsScreen()),
+                      navigateTo: AboutUsScreen()),
 
                   TitleButton(image: Images.contactUs, title: 'Contact Us',
-                      navigateTo: const ContactUsScreen()),
+                      navigateTo: ContactUsScreen()),
 
                   ListTile(
                     leading: Image.asset(Images.logoWithImage, width: 25, height: 25, fit: BoxFit.fill,),

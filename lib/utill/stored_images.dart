@@ -121,4 +121,7 @@ class Images {
   static const String achievement2 = 'assets/images/achievement2.png';
   static const String achievement3 = 'assets/images/achievement3.png';
   static const String best_review = 'assets/images/best_review.png';
+  static const String home = 'assets/images/home_address.png';
+  static const String office = 'assets/images/office_address.png';
+  static const String other = 'assets/images/other_address.png';
 }
