@@ -3,6 +3,7 @@ import 'package:sas_ecommerce/Models/category_model.dart';
 import 'package:sas_ecommerce/helper/constant.dart';
 import 'package:sas_ecommerce/helper/rating_bar.dart';
 
+import '../Screens/product/product_details_screen.dart';
 import '../utill/dimensions.dart';
 import '../utill/stored_images.dart';
 
@@ -16,6 +17,8 @@ class ProductWidget extends StatelessWidget {
 
     return InkWell(
       onTap: () {
+        Navigator.push(context, MaterialPageRoute(builder: (_) =>
+            ProductDetails()));
         // Navigator.push(context, PageRouteBuilder(
         //   transitionDuration: const Duration(milliseconds: 1000),
         //   pageBuilder: (context, anim1, anim2) => ProductDetails(productId: productModel.id,slug: productModel.slug),

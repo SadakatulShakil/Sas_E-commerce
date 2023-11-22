@@ -31,12 +31,14 @@ class _AchievementViewState extends State<AchievementView> {
   @override
   Widget build(BuildContext context) {
     return Container(
-      height: Dimensions.cardHeight,
-      child: MasonryGridView.count(
+      height: 350,
+      child: StaggeredGridView.countBuilder(
         itemCount: productList.length,
         crossAxisCount: 2,
-        mainAxisSpacing: 2,
-        crossAxisSpacing: 2,
+        padding: const EdgeInsets.all(0),
+        physics: const NeverScrollableScrollPhysics(),
+        shrinkWrap: true,
+        staggeredTileBuilder: (int index) => const StaggeredTile.fit(1),
         itemBuilder: (context, index) {
           return Container(
                     height: index == 0?160:index == 4?100:(index % 5+1) * 50,

@@ -9,6 +9,7 @@ import 'package:sas_ecommerce/Screens/home/widgets/latest_product_view.dart';
 import 'package:sas_ecommerce/Screens/home/widgets/offer_product_view.dart';
 import 'package:sas_ecommerce/Screens/home/widgets/recommended_product_view.dart';
 import 'package:sas_ecommerce/Screens/home/widgets/top_seller_view.dart';
+import 'package:sas_ecommerce/Screens/product/product_details_screen.dart';
 import 'package:sas_ecommerce/helper/constant.dart';
 
 import '../../Models/category_model.dart';
@@ -207,8 +208,7 @@ class _HomePageState extends State<HomePage> {
 
                           TitleRow(title: 'Best Selling Products',
                               onTap: () {
-                                // Navigator.push(context, MaterialPageRoute(builder: (_) =>
-                                //     AllProductScreen(productType: ProductType.featuredProduct)));
+                            ///view All product
                               }
                           ),
                           const SizedBox(height: Dimensions.paddingSizeSmall),

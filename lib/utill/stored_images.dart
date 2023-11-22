@@ -124,4 +124,5 @@ class Images {
   static const String home = 'assets/images/home_address.png';
   static const String office = 'assets/images/office_address.png';
   static const String other = 'assets/images/other_address.png';
+  static const String product = 'assets/images/demo_product.jpg';
 }
