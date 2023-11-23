@@ -3,7 +3,7 @@ import 'package:get/get.dart';
 import 'package:get/get_core/src/get_main.dart';
 import 'package:get/get_navigation/src/snackbar/snackbar.dart';
 
-void showCustomSnackBar(String? message, BuildContext context, {bool isError = true, bool isToaster = false}) {
+void showCustomSnackBar(String? message, BuildContext context, {bool isError = true, bool isToaster = true}) {
   if(isToaster){
     Get.snackbar(
       'Its a Toaster!',

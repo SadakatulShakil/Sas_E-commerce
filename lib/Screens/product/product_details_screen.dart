@@ -128,21 +128,8 @@ class _ProductDetailsState extends State<ProductDetails> {
             Padding(padding: const EdgeInsets.all(Dimensions.paddingSizeDefault),
               child: TitleRow(title: 'More From the Shop', isDetailsPage: true)),
 
-
             Padding(padding: const EdgeInsets.all(Dimensions.paddingSizeExtraSmall),
               child: MoreProductView(),),
-
-
-            // TitleRow(title: 'More From this shop',
-            //     onTap: () {
-            //       ///view All product
-            //     }
-            // ),
-            // const SizedBox(height: Dimensions.paddingSizeSmall),
-            // Padding(
-            //   padding: const EdgeInsets.only(bottom: Dimensions.homePagePadding),
-            //   child: MoreProductView(),
-            // ),
           ],
         ),
       ),

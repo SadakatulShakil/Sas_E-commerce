@@ -26,16 +26,16 @@ class ProductTitleView extends StatelessWidget {
 
 
           Column(children: [
-            Text('1200',
+            Text('৳ 1300',
               style: TextStyle(color: Theme.of(context).hintColor,
                   decoration: TextDecoration.lineThrough),
             ),
             SizedBox(height: Dimensions.paddingSizeExtraExtraSmall),
 
 
-            Text('1300',
+            Text('৳ 1200',
               style: TextStyle(color: Colors.red,
-                  fontSize: Dimensions.fontSizeLarge),
+                  fontSize: Dimensions.fontSizeLarge, fontWeight: FontWeight.w600),
             ),
           ],),
         ]),

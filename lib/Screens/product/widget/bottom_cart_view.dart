@@ -4,6 +4,7 @@ import 'package:sas_ecommerce/helper/constant.dart';
 
 import '../../../utill/dimensions.dart';
 import '../../../utill/stored_images.dart';
+import '../../cart/cart_screen.dart';
 import '../../home/widgets/show_custom_snakbar.dart';
 import 'cart_bottom_sheet.dart';
 
@@ -42,9 +43,9 @@ class _BottomCartViewState extends State<BottomCartView> {
             GestureDetector(
                 onTap: (){
                   /// go to cart Screen
-                  // Navigator.of(context).push(MaterialPageRoute(
-                  //     builder: (context)=>const CartScreen()
-                  // ));
+                  Navigator.of(context).push(MaterialPageRoute(
+                      builder: (context)=>const CartScreen()
+                  ));
                 },
                 child: Image.asset(Images.cartArrowDownImage, color: primarygreen)),
             Positioned(

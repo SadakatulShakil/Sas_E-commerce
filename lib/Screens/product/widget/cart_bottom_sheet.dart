@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:get/get_core/src/get_main.dart';
 
 import '../../../helper/custom_button.dart';
 import '../../../utill/dimensions.dart';
@@ -25,10 +27,13 @@ class CartBottomSheetState extends State<CartBottomSheet> {
     //
     // }
   }
+  int quantity = 1;
+  double actualTotal = 1200.0;
   @override
   void initState() {
     // Provider.of<ProductDetailsProvider>(context, listen: false).initData(widget.product!,widget.product!.minimumOrderQty, context);
     super.initState();
+
   }
 
   @override
@@ -91,6 +96,12 @@ class CartBottomSheetState extends State<CartBottomSheet> {
                                       maxLines: 2, overflow: TextOverflow.ellipsis),
                                 ],
                               ),
+                              Text('Stock available: 10',
+                                  style: TextStyle(fontSize: Dimensions.fontSizeLarge),
+                                  maxLines: 2, overflow: TextOverflow.ellipsis),
+                              Text('Minimum quantiy: 1',
+                                  style: TextStyle(fontSize: Dimensions.fontSizeLarge),
+                                  maxLines: 2, overflow: TextOverflow.ellipsis),
                             ]),
                       ),
                     ]),
@@ -108,7 +119,7 @@ class CartBottomSheetState extends State<CartBottomSheet> {
                       ),
                       child: Padding(
                         padding: const EdgeInsets.all(8.0),
-                        child: Text('1200',
+                        child: Text('৳ 1200',
                           style: TextStyle(color: Theme.of(context).cardColor,
                               fontSize: Dimensions.fontSizeDefault),
                         ),
@@ -116,7 +127,7 @@ class CartBottomSheetState extends State<CartBottomSheet> {
                     ),
                     const SizedBox(width: Dimensions.paddingSizeDefault),
                     Text(
-                     '1300',
+                     '৳ 1300',
                       style: TextStyle(color: Colors.redAccent,
                           decoration: TextDecoration.lineThrough),
                     )
@@ -128,14 +139,34 @@ class CartBottomSheetState extends State<CartBottomSheet> {
 
             // Quantity
             Row(children: [
-              Text('Quantity', style: TextStyle(fontWeight: FontWeight.w600, fontSize: 18)),
-              QuantityButton(isIncrement: false, quantity: 1,
-                  stock: 10, minimumOrderQuantity: 1,
-                  digitalProduct: true),
-              Text('1', style: TextStyle(fontWeight: FontWeight.w600)),
-              QuantityButton(isIncrement: true, quantity: 1, stock: 10,
-                  minimumOrderQuantity: 1,
-                  digitalProduct: true),
+              Text('Quantity: ', style: TextStyle(fontWeight: FontWeight.w600, fontSize: 18)),
+              QuantityButton(
+                isIncrement: false,
+                quantity: quantity,
+                stock: 10,
+                minimumOrderQuantity: 1,
+                digitalProduct: true,
+                onQuantityChanged: (newQuantity) {
+                  setState(() {
+                    quantity = newQuantity;
+                    actualTotal -=1200;
+                  });
+                },
+              ),
+              Text('$quantity', style: TextStyle(fontWeight: FontWeight.w600)),
+              QuantityButton(
+                isIncrement: true,
+                quantity: quantity,
+                stock: 10,
+                minimumOrderQuantity: 1,
+                digitalProduct: true,
+                onQuantityChanged: (newQuantity) {
+                  setState(() {
+                    quantity = newQuantity;
+                    actualTotal +=1200;
+                  });
+                },
+              ),
             ]),
             const SizedBox(height: Dimensions.paddingSizeSmall),
 
@@ -143,8 +174,8 @@ class CartBottomSheetState extends State<CartBottomSheet> {
             Row(mainAxisAlignment: MainAxisAlignment.center, children: [
               Text('Total Price', style: TextStyle(fontWeight: FontWeight.w600, fontSize: 18)),
               const SizedBox(width: Dimensions.paddingSizeSmall),
-              Text('1200',
-                style: TextStyle(color: Colors.green, fontSize: Dimensions.fontSizeLarge),
+              Text('৳ $actualTotal',
+                style: TextStyle(color: Colors.green, fontSize: Dimensions.fontSizeLarge, fontWeight: FontWeight.w600),
               ),
             ]),
             const SizedBox(height: Dimensions.paddingSizeSmall),
@@ -154,6 +185,10 @@ class CartBottomSheetState extends State<CartBottomSheet> {
                 child: CustomButton(
                   buttonText: 'Add to Cart',
                   onTap: (){
+                    /// do add to cart system
+
+                    addCart();
+                    Navigator.pop(context);
                     showCustomSnackBar('Added to Cart', context, isError: false);
                          },
                   backgroundColor: Colors.green.shade200,
@@ -163,9 +198,11 @@ class CartBottomSheetState extends State<CartBottomSheet> {
               Expanded(
                 child:
                 CustomButton(
-                  buttonText: 'Add to Cart',
+                  buttonText: 'Buy Now',
                   onTap: (){
-                    showCustomSnackBar('Added to Cart', context, isError: false);
+                    _navigateToNextScreen(context);
+                    /// do add to buy system
+                    showCustomSnackBar('Buy now product', context, isError: false);
                   },
                   backgroundColor: Colors.amber.shade200,
                   radius: 20,
@@ -181,46 +218,97 @@ class CartBottomSheetState extends State<CartBottomSheet> {
   void _navigateToNextScreen(BuildContext context) {
     //Navigator.of(context).push(MaterialPageRoute(builder: (context) => const CartScreen()));
   }
+
+  void addCart() {
+    String name = 'jjjj';
+    String price = '555';
+    String quantity = 'pppp';
+
+    int cartValue;
+  }
 }
 
-class QuantityButton extends StatelessWidget {
+class QuantityButton extends StatefulWidget {
   final bool isIncrement;
-  final int? quantity;
+  final int quantity;
+  final Function(int) onQuantityChanged;
   final bool isCartWidget;
-  final int? stock;
-  final int? minimumOrderQuantity;
+  final int stock;
+  final int minimumOrderQuantity;
   final bool digitalProduct;
 
-  const QuantityButton({Key? key,
+  const QuantityButton({
+    Key? key,
     required this.isIncrement,
     required this.quantity,
+    required this.onQuantityChanged,
     required this.stock,
-    this.isCartWidget = false,required this.minimumOrderQuantity,required this.digitalProduct,
+    this.isCartWidget = false,
+    required this.minimumOrderQuantity,
+    required this.digitalProduct,
   }) : super(key: key);
 
+  @override
+  _QuantityButtonState createState() => _QuantityButtonState();
+}
+
+class _QuantityButtonState extends State<QuantityButton> {
   @override
   Widget build(BuildContext context) {
     return IconButton(
       onPressed: () {
-        /// quantity button task
+        if (!widget.isIncrement) {
+          if(widget.quantity > widget.minimumOrderQuantity){
+            widget.onQuantityChanged(widget.quantity - 1);
+          }else{
+            Get.snackbar(
+              'Its a warning!',
+              'Minimum quantity is '+widget.minimumOrderQuantity.toString(),
+              snackPosition: SnackPosition.TOP,
+              backgroundColor: Colors.pinkAccent,
+              colorText: Colors.white,
+              borderRadius: 10,
+              margin: EdgeInsets.all(10),
+            );
+          }
+
+        } else if (widget.isIncrement && (widget.quantity < widget.stock)) {
+          widget.onQuantityChanged(widget.quantity + 1);
+        }else{
+          Get.snackbar(
+            'Its a warning!',
+            'Stock not available',
+            snackPosition: SnackPosition.TOP,
+            backgroundColor: Colors.pinkAccent,
+            colorText: Colors.white,
+            borderRadius: 10,
+            margin: EdgeInsets.all(10),
+          );
+        }
       },
       icon: Container(
-        width: 40,height: 40,
+        width: 40,
+        height: 40,
         decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(20),
-          border: Border.all(width: 1, color: Theme.of(context).primaryColor)
+          border: Border.all(
+              width: 1, color: Theme.of(context).primaryColor),
         ),
         child: Icon(
-          isIncrement ? Icons.add : Icons.remove,
-          color: isIncrement ? quantity! >= stock! && !digitalProduct? Colors.red : Colors.black
-              : quantity! > 1
+          widget.isIncrement ? Icons.add : Icons.remove,
+          color: widget.isIncrement
+              ? widget.quantity >= widget.stock! && !widget.digitalProduct
+              ? Colors.red
+              : Colors.black
+              : widget.quantity > 1
               ? Colors.black
               : Colors.black,
-          size: isCartWidget?26:20,
+          size: widget.isCartWidget ? 26 : 20,
         ),
       ),
     );
   }
 }
+
 
 

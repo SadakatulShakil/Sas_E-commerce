@@ -88,11 +88,11 @@ class Images {
   static const String paytabs = 'assets/images/paytabs.png';
   static const String razorpay = 'assets/images/razorpay.png';
   static const String snangpay = 'assets/images/senang.png';
-  static const String sslCommerz = 'assets/images/ssl_commerz.png';
+  static const String sslCommerz = 'assets/images/ssl_icon.png';
   static const String stripe = 'assets/images/stripe.png';
   static const String flutterwave = 'assets/images/flutterwave.png';
   static const String fawryPay = 'assets/images/fawry_pay.png';
-  static const String cod = 'assets/images/cod.png';
+  static const String cod = 'assets/images/cod_icon.png';
   static const String offlinePay = 'assets/images/offline_pay.png';
   static const String walletPay = 'assets/images/wallet_pay.png';
 
