@@ -36,7 +36,7 @@ class TitleRow extends StatelessWidget {
               padding: isFlash?  const EdgeInsets.only(left: Dimensions.paddingSizeExtraSmall):const EdgeInsets.all(0),
               child: Image.asset(Images.flashDeal, scale: 4,),
             ):const SizedBox(),
-            Text(title!, style: TextStyle(fontSize: Dimensions.fontSizeLarge, fontWeight: FontWeight.w600, color: primarygreen)),
+            Text(title!, style: TextStyle(fontSize: Dimensions.fontSizeLarge, fontWeight: FontWeight.w600, color: primaryColor)),
             const Spacer(),
             eventDuration == null
                 ? const Expanded(child: SizedBox.shrink())
@@ -65,7 +65,7 @@ class TitleRow extends StatelessWidget {
                     Images.filterImage,
                     height: Dimensions.iconSizeDefault,
                     width: Dimensions.iconSizeDefault,
-                    color: primarygreen,
+                    color: primaryColor,
                   ),
                 )
             )
@@ -131,8 +131,8 @@ class TimerBox extends StatelessWidget {
     return Container(
       width: MediaQuery.of(context).size.width/9.5,height: MediaQuery.of(context).size.width/9.5,
       decoration: BoxDecoration(
-        color: isBorder ? null : primarygreen,
-        border: isBorder ? Border.all(width: 2, color: primarygreen) : null,
+        color: isBorder ? null : primaryColor,
+        border: isBorder ? Border.all(width: 2, color: primaryColor) : null,
         borderRadius: BorderRadius.circular(3),
       ),
       child: Center(
@@ -140,12 +140,12 @@ class TimerBox extends StatelessWidget {
           children: [
             Text(time! < 10 ? '0$time' : time.toString(),
               style: TextStyle(
-                color: isBorder ? primarygreen : Theme.of(context).highlightColor,
+                color: isBorder ? primaryColor : Theme.of(context).highlightColor,
                 fontSize: Dimensions.fontSizeSmall,
               ),
             ),
             Text(day!, style: TextStyle(color: isBorder ?
-            primarygreen : Theme.of(context).highlightColor,
+            primaryColor : Theme.of(context).highlightColor,
               fontSize: Dimensions.fontSizeSmall,)),
           ],
         ),

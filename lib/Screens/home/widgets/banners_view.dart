@@ -7,50 +7,6 @@ import '../../../utill/stored_images.dart';
 class BannersView extends StatelessWidget {
   BannersView({Key? key}) : super(key: key);
 
-
-  // _clickBannerRedirect(BuildContext context, int? id, Product? product,  String? type){
-  //
-  //   final cIndex =  Provider.of<CategoryProvider>(context, listen: false).categoryList.indexWhere((element) => element.id == id);
-  //   final bIndex =  Provider.of<BrandProvider>(context, listen: false).brandList.indexWhere((element) => element.id == id);
-  //   final tIndex =  Provider.of<TopSellerProvider>(context, listen: false).topSellerList.indexWhere((element) => element.id == id);
-  //
-  //
-  //   if(type == 'category'){
-  //     if(Provider.of<CategoryProvider>(context, listen: false).categoryList[cIndex].name != null){
-  //       Navigator.push(context, MaterialPageRoute(builder: (_) => BrandAndCategoryProductScreen(
-  //         isBrand: false,
-  //         id: id.toString(),
-  //         name: '${Provider.of<CategoryProvider>(context, listen: false).categoryList[cIndex].name}',
-  //       )));
-  //     }
-  //
-  //   }else if(type == 'product'){
-  //     if(product != null) {
-  //       Navigator.push(context, MaterialPageRoute(builder: (_) => ProductDetails(
-  //         productId: product.id,slug: product.slug,
-  //       )));
-  //     }
-  //
-  //   }else if(type == 'brand'){
-  //     if(Provider.of<BrandProvider>(context, listen: false).brandList[bIndex].name != null){
-  //       Navigator.push(context, MaterialPageRoute(builder: (_) => BrandAndCategoryProductScreen(
-  //         isBrand: true,
-  //         id: id.toString(),
-  //         name: '${Provider.of<BrandProvider>(context, listen: false).brandList[bIndex].name}',
-  //       )));
-  //     }
-  //
-  //   }else if( type == 'shop'){
-  //     if(Provider.of<TopSellerProvider>(context, listen: false).topSellerList[tIndex].name != null){
-  //       Navigator.push(context, MaterialPageRoute(builder: (_) => TopSellerProductScreen(
-  //         topSellerId: id,
-  //         topSeller: Provider.of<TopSellerProvider>(context,listen: false).topSellerList[tIndex],
-  //       )));
-  //     }
-  //
-  //   }
-  // }
-
   int currentIndex = 0;
   final List<String> mainBannerList = [
     'assets/images/banner1.png',

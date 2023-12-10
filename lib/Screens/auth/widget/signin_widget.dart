@@ -22,7 +22,7 @@ class _SignInWidgetState extends State<SignInWidget> {
             SizedBox(height: 30,),
             Text(
               'Sign In,',
-              style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold, color: primarygreen),
+              style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold, color: primaryColor),
             ),
             SizedBox(height: 20),
             // Add your sign-in form widgets here
@@ -43,7 +43,7 @@ class _SignInWidgetState extends State<SignInWidget> {
               child: Align(
                 alignment: Alignment.centerRight,
                 child: Text("Forget password",
-                    style: TextStyle(fontWeight: FontWeight.bold, color: greenshede0)),
+                    style: TextStyle(fontWeight: FontWeight.bold, color: accent)),
               ),
             ),
             SizedBox(height: 20),
@@ -52,9 +52,9 @@ class _SignInWidgetState extends State<SignInWidget> {
                 // Implement sign-in logic here
               },
               style: ElevatedButton.styleFrom(
-                primary: lightgreenshede1, // Set the background color here
+                primary: accentLight, // Set the background color here
               ),
-              child: Text('Sign In',style: TextStyle(color: primarygreen)),
+              child: Text('Sign In',style: TextStyle(color: primaryColor)),
             ),
             SizedBox(height: 20,),
 
@@ -70,7 +70,7 @@ class _SignInWidgetState extends State<SignInWidget> {
               child: Align(
                 alignment: Alignment.center,
                 child: Text("Continue as A Guest",
-                    style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold, color: greenshede0)),
+                    style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold, color: accent)),
               ),
             )
           ],

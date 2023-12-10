@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:sas_ecommerce/helper/constant.dart';
 
 class CustomPasswordTextField extends StatefulWidget {
   final TextEditingController? controller;
@@ -28,7 +29,7 @@ class CustomPasswordTextFieldState extends State<CustomPasswordTextField> {
     return Container(
       width: double.infinity,
       decoration: BoxDecoration(
-        color: Theme.of(context).highlightColor,
+        color: accentShade,
         borderRadius: BorderRadius.circular(6),
         boxShadow: [
           BoxShadow(color: Colors.grey.withOpacity(0.2), spreadRadius: 1, blurRadius: 7, offset: const Offset(0, 1)) // changes position of shadow
@@ -37,7 +38,7 @@ class CustomPasswordTextFieldState extends State<CustomPasswordTextField> {
       child: ClipRRect(
         borderRadius: BorderRadius.circular(6),
         child: TextFormField(
-          cursorColor: Theme.of(context).primaryColor,
+          cursorColor:primaryColor,
           controller: widget.controller,
           obscureText: _obscureText,
           focusNode: widget.focusNode,
@@ -58,7 +59,7 @@ class CustomPasswordTextFieldState extends State<CustomPasswordTextField> {
               contentPadding: const EdgeInsets.symmetric(vertical: 12.0, horizontal: 15),
               isDense: true,
               filled: true,
-              fillColor: Theme.of(context).highlightColor,
+              fillColor: primaryBackground,
               focusedBorder: OutlineInputBorder(borderSide: BorderSide(color: Theme.of(context).primaryColor)),
               hintStyle: TextStyle(color: Theme.of(context).hintColor),
               border: InputBorder.none),

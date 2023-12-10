@@ -5,22 +5,18 @@ import 'dart:async';
 
 import 'package:shared_preferences/shared_preferences.dart';
 
-import '../auth/auth_screen.dart';
+import '../../utill/dimensions.dart';
 import '../home/dashboard_screen.dart';
-import 'onboard_screen.dart';
 
-class SplashScreen extends StatefulWidget {
+class CheckOutSuccessScreen extends StatefulWidget {
   @override
-  _SplashScreenState createState() => _SplashScreenState();
+  _CheckOutSuccessScreenState createState() => _CheckOutSuccessScreenState();
 }
 
-class _SplashScreenState extends State<SplashScreen> {
+class _CheckOutSuccessScreenState extends State<CheckOutSuccessScreen> {
   @override
   void initState() {
     super.initState();
-    Timer(Duration(seconds: 3), () {
-      Navigator.pushReplacementNamed(context, '/auth');
-    });
   }
 
   @override
@@ -31,8 +27,31 @@ class _SplashScreenState extends State<SplashScreen> {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            Image.asset(Images.logoImage, height: 200,width: 200,),
-            Image.asset(Images.logoText, width: MediaQuery.of(context).size.width-100,),
+            Image.asset('assets/images/success.png'),
+
+            SizedBox(height: 50,),
+
+            GestureDetector(
+              onTap: (){
+                Navigator.pushAndRemoveUntil(context, MaterialPageRoute(builder: (_) => const DashBoardScreen()),
+                        (route) => false);
+              },
+              child: Container(
+                height: 60,
+                padding: const EdgeInsets.symmetric(
+                    horizontal: Dimensions.paddingSizeLarge,
+                    vertical: Dimensions.paddingSizeDefault),
+                decoration: BoxDecoration(
+                  color: accentShade,
+                ),
+                child: Center(
+                    child: Text('Back to Home Page',
+                        style: TextStyle(
+                          fontSize: Dimensions.fontSizeExtraLarge,
+                          color: Colors.white,
+                        ))),
+              ),
+            )
           ],
         ),
       ),

@@ -72,18 +72,18 @@ class _GetTextFormFieldState extends State<GetTextFormField> {
                 },
               ),
             ),
-            labelStyle: TextStyle(color: greenshede0),
+            labelStyle: TextStyle(color: accent),
             enabledBorder: OutlineInputBorder(
               borderRadius: BorderRadius.all(Radius.circular(10.0)),
-              borderSide: BorderSide(color: greenshede0),
+              borderSide: BorderSide(color: accent),
             ),
             focusedBorder: OutlineInputBorder(
               borderRadius: BorderRadius.all(Radius.circular(10.0)),
-              borderSide: BorderSide(color: greenshede0),
+              borderSide: BorderSide(color: accent),
             ),
             disabledBorder: OutlineInputBorder(
               borderRadius: BorderRadius.all(Radius.circular(10.0)),
-              borderSide: BorderSide(color: greenshede0),
+              borderSide: BorderSide(color: accent),
             ),
             hintText: widget.hintName,
             labelText: widget.hintName,

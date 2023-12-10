@@ -266,7 +266,7 @@ class CategoryItem extends StatelessWidget {
       margin: const EdgeInsets.symmetric(vertical: Dimensions.paddingSizeExtraSmall, horizontal: 2),
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(10),
-        color: isSelected ? primarygreen : null,
+        color: isSelected ? primaryColor : null,
       ),
       child: Center(
         child: Column(mainAxisAlignment: MainAxisAlignment.spaceEvenly, children: [

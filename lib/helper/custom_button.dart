@@ -21,7 +21,7 @@ class CustomButton extends StatelessWidget {
         height: 45,
         alignment: Alignment.center,
         decoration: BoxDecoration(
-          color:  backgroundColor ?? (isBuy? const Color(0xffFE961C) : lightgreenshede1),
+          color:  backgroundColor ?? (isBuy? const Color(0xffFE961C) : accentLight),
             boxShadow: [
               BoxShadow(color: Colors.grey.withOpacity(0.2), spreadRadius: 1, blurRadius: 7, offset: const Offset(0, 1)), // changes position of shadow
             ],
@@ -29,7 +29,7 @@ class CustomButton extends StatelessWidget {
         child: Text(buttonText!,
             style: TextStyle(
               fontSize: 16,
-              color: primarygreen,
+              color: Colors.white,
             )),
       ),
     );

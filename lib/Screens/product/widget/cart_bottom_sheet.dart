@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:get/get_core/src/get_main.dart';
 
+import '../../../helper/constant.dart';
 import '../../../helper/custom_button.dart';
 import '../../../utill/dimensions.dart';
 import '../../../utill/stored_images.dart';
@@ -191,7 +192,7 @@ class CartBottomSheetState extends State<CartBottomSheet> {
                     Navigator.pop(context);
                     showCustomSnackBar('Added to Cart', context, isError: false);
                          },
-                  backgroundColor: Colors.green.shade200,
+                  backgroundColor: accentShade,
                   radius: 20,
                 ),),
               const SizedBox(width: Dimensions.paddingSizeDefault),

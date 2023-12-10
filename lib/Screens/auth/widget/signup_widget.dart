@@ -64,9 +64,9 @@ class _SignUpWidgetState extends State<SignUpWidget> {
                 // Implement sign-up logic here
               },
               style: ElevatedButton.styleFrom(
-                primary: lightgreenshede1,
+                primary: accentLight,
               ),
-              child: Text('Sign Up', style: TextStyle(color: primarygreen)),
+              child: Text('Sign Up', style: TextStyle(color: primaryColor)),
             ),
             SizedBox(height: 20,),
 
@@ -77,7 +77,7 @@ class _SignUpWidgetState extends State<SignUpWidget> {
               child: Align(
                 alignment: Alignment.center,
                 child: Text("Skip for Now  ->",
-                    style: TextStyle(fontSize: 15, fontWeight: FontWeight.bold, color: greenshede0)),
+                    style: TextStyle(fontSize: 15, fontWeight: FontWeight.bold, color: accent)),
               ),
             )
           ],

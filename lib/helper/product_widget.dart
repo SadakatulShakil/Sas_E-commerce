@@ -83,7 +83,7 @@ class ProductWidget extends StatelessWidget {
                     const SizedBox(height: Dimensions.paddingSizeExtraSmall),
 
                     Text('৳ '+productModel.id.toString(),
-                      style: TextStyle(color: primarygreen),
+                      style: TextStyle(color: primaryColor),
                     ),
 
                   ],

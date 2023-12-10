@@ -12,7 +12,7 @@ class ContactUsScreen extends StatelessWidget {
         backgroundColor: Colors.redAccent,
         body:
         Center(
-          child: Text("Notification page", style: TextStyle(fontSize: 20, color: Colors.black)),
+          child: Text("Contact us page", style: TextStyle(fontSize: 20, color: Colors.black)),
         )
       // Column(
       //   children: [

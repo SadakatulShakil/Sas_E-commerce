@@ -8,9 +8,9 @@ class Images {
   static const String orderItem = 'assets/images/order_item.png';
   static const String officeImage = 'assets/images/office.png';
   static const String logoImage = 'assets/images/logo.png';
-  static const String logoWithImage = 'assets/images/logo_icon.png';
+  static const String logoText = 'assets/images/logo_text.png';
   static const String inspireImage = 'assets/images/inspire.png';
-  static const String logoWithNameImage = 'assets/images/logo_with_name.PNG';
+  static const String logoWithNameImage = 'assets/images/logo_with_text.png';
   static const String logoWithNameImageWhite = 'assets/images/logo.png';
   static const String messageImage = 'assets/images/inbox.png';
   static const String moreImage = 'assets/images/more.png';

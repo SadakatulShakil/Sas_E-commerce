@@ -47,7 +47,7 @@ class _BottomCartViewState extends State<BottomCartView> {
                       builder: (context)=>const CartScreen()
                   ));
                 },
-                child: Image.asset(Images.cartArrowDownImage, color: primarygreen)),
+                child: Image.asset(Images.cartArrowDownImage, color: primaryColor)),
             Positioned(
               top: 5,
               right: 10,
@@ -70,7 +70,7 @@ class _BottomCartViewState extends State<BottomCartView> {
         Expanded(flex: 11, child: InkWell(
           onTap: () {
               showModalBottomSheet(context: context, isScrollControlled: true,
-                  backgroundColor: Theme.of(context).primaryColor.withOpacity(0),
+                  backgroundColor: Theme.of(context).primaryColor.withOpacity(.5),
                   builder: (con) => CartBottomSheet(callback: (){
                     showCustomSnackBar('Add to Cart', context, isError: false);
                   },));
@@ -83,11 +83,11 @@ class _BottomCartViewState extends State<BottomCartView> {
             alignment: Alignment.center,
             decoration: BoxDecoration(
               borderRadius: BorderRadius.circular(10),
-              color: lightgreenshede,
+              color: accentShade,
             ),
             child: Text(
               'Add to Cart',
-              style: TextStyle(fontSize: Dimensions.fontSizeLarge, color: primarygreen),
+              style: TextStyle(fontSize: Dimensions.fontSizeLarge, color: Colors.white),
             ),
           ),
         )),

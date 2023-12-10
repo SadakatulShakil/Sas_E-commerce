@@ -46,9 +46,9 @@ class NotificationScreen extends StatelessWidget {
                             color: Theme.of(context).cardColor,
                             child: ListTile(
                               leading: ClipOval(child: FadeInImage.assetNetwork(
-                                placeholder: Images.logoWithImage, height: 50, width: 50, fit: BoxFit.cover,
-                                image: Images.logoWithImage,
-                                imageErrorBuilder: (c, o, s) => Image.asset(Images.logoWithImage, height: 50, width: 50, fit: BoxFit.cover),
+                                placeholder: Images.logoImage, height: 50, width: 50, fit: BoxFit.cover,
+                                image: Images.logoImage,
+                                imageErrorBuilder: (c, o, s) => Image.asset(Images.logoImage, height: 50, width: 50, fit: BoxFit.cover),
                               )),
                               title: Text(noteList[index].title, style: TextStyle(
                                 fontSize: Dimensions.fontSizeSmall,

@@ -62,7 +62,7 @@ class _HomePageState extends State<HomePage> {
       resizeToAvoidBottomInset: false,
       body: SafeArea(
         child: RefreshIndicator(
-          backgroundColor: greenshede1,
+          backgroundColor: accentShade1,
           color: Colors.white,
           onRefresh: () async {
             await _loadData( true);
@@ -80,7 +80,7 @@ class _HomePageState extends State<HomePage> {
                     centerTitle: false,
                     automaticallyImplyLeading: false,
                     backgroundColor: Colors.white,
-                    title: Image.asset(Images.logoImage, height: 35),
+                    title: Image.asset(Images.logoWithNameImage, height: 35),
                     actions: [
                       Padding(
                         padding: const EdgeInsets.only(right: 12.0),

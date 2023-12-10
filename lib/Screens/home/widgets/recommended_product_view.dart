@@ -45,7 +45,7 @@ class _RecommendedProductViewState extends State<RecommendedProductView> {
             child: Container(
               decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(10),
-                color: lightgreenshede,
+                color: primaryBackground,
                 boxShadow: [BoxShadow(color: Colors.grey.withOpacity(0.2), spreadRadius: 1, blurRadius: 5)],
               ),
               child: Column(
@@ -53,7 +53,7 @@ class _RecommendedProductViewState extends State<RecommendedProductView> {
                   const SizedBox(height: Dimensions.paddingSizeSmall),
                   Text(
                     '-Best Review',
-                    style: TextStyle(fontSize: Dimensions.fontSizeExtraLarge, fontWeight: FontWeight.w600, color: primarygreen),
+                    style: TextStyle(fontSize: Dimensions.fontSizeExtraLarge, fontWeight: FontWeight.w600, color: primaryColor),
                   ),
                   const SizedBox(height: Dimensions.paddingSizeSmall,),
                   Stack(
@@ -115,7 +115,7 @@ class _RecommendedProductViewState extends State<RecommendedProductView> {
                                 const SizedBox(height: Dimensions.paddingSizeExtraSmall),
 
                                 Text('অনার অফ তৃপ্তি বাহার',
-                                  style: TextStyle(color: primarygreen),
+                                  style: TextStyle(color: primaryColor),
                                 ),
 
                               ],),

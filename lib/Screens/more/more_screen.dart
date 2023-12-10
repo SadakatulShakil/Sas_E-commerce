@@ -45,7 +45,7 @@ class _MoreScreenState extends State<MoreScreen> {
         Positioned(top: 0, left: 0, right: 0,
           child: Image.asset(Images.morePageHeader,
             height: 180, fit: BoxFit.fill,
-            color: lightgreenshede1,
+            color: accentLight,
           ),
         ),
 
@@ -55,7 +55,7 @@ class _MoreScreenState extends State<MoreScreen> {
           child: Row(
               children: [
             Padding(padding: const EdgeInsets.only(top: Dimensions.paddingSizeLarge),
-              child: Image.asset(Images.logoWithNameImageWhite, height: 35),
+              child: Image.asset(Images.logoWithNameImage, height: 35),
             ),
             const Expanded(child: SizedBox.shrink()),
             Padding(
@@ -155,14 +155,14 @@ class _MoreScreenState extends State<MoreScreen> {
                       navigateTo: ContactUsScreen()),
 
                   ListTile(
-                    leading: Image.asset(Images.logoWithImage, width: 25, height: 25, fit: BoxFit.fill,),
+                    leading: Image.asset(Images.logoImage, width: 25, height: 25, fit: BoxFit.fill,),
                     title: Text('App Info',
                         style: TextStyle(fontSize: Dimensions.fontSizeLarge)),
                     trailing: const Text('1.0.0'),
                   ),
 
                   ListTile(
-                    leading: Icon(Icons.exit_to_app, color: primarygreen, size: 25,),
+                    leading: Icon(Icons.exit_to_app, color: primaryColor, size: 25,),
                     title: Text('Sign Out',
                         style: TextStyle(fontSize: Dimensions.fontSizeLarge)),
                     onTap: () => showAnimatedDialog(context, const SignOutConfirmationDialog(), isFlip: true),
@@ -200,7 +200,7 @@ class SquareButton extends StatelessWidget {
             padding: const EdgeInsets.all(Dimensions.paddingSizeLarge),
             decoration: BoxDecoration(
               borderRadius: BorderRadius.circular(10),
-              color: lightgreenshede1,
+              color: accentLight,
             ),
             child: Stack(
               clipBehavior: Clip.none,
@@ -221,7 +221,7 @@ class SquareButton extends StatelessWidget {
         ),
         Flexible(
           child: Text(title!, maxLines: 1,overflow: TextOverflow.clip,
-              style: TextStyle(fontSize: Dimensions.fontSizeDefault, color: primarygreen, fontWeight: FontWeight.w600)),
+              style: TextStyle(fontSize: Dimensions.fontSizeDefault, color: primaryColor, fontWeight: FontWeight.w600)),
         ),
       ]),
     );

@@ -98,10 +98,10 @@ class _OnboardScreenState extends State<OnboardScreen> {
                   },
                   child: Text(
                     "Previous",
-                    style: TextStyle(fontSize: 18.sp,  color: primarygreen),
+                    style: TextStyle(fontSize: 18.sp,  color: primaryColor),
                   ),
                   style: ElevatedButton.styleFrom(
-                    primary: lightgreenshede1,
+                    primary: accentLight,
                     shape: const RoundedRectangleBorder(
                       borderRadius: BorderRadius.only(
                         topRight: Radius.circular(20.0),
@@ -121,10 +121,10 @@ class _OnboardScreenState extends State<OnboardScreen> {
                   },
                   child: Text(
                     "Next",
-                    style: TextStyle(fontSize: 18.sp, color: primarygreen),
+                    style: TextStyle(fontSize: 18.sp, color: primaryColor),
                   ),
                   style: ElevatedButton.styleFrom(
-                    primary: lightgreenshede1,
+                    primary: accentLight,
                     shape: const RoundedRectangleBorder(
                       borderRadius: BorderRadius.only(
                         topLeft: Radius.circular(20.0),
@@ -147,10 +147,10 @@ class _OnboardScreenState extends State<OnboardScreen> {
               },
               child: Text(
                 "Get Started",
-                style: TextStyle(fontSize: 18, color: primarygreen),
+                style: TextStyle(fontSize: 18, color: primaryColor),
               ),
               style: ElevatedButton.styleFrom(
-                primary: lightgreenshede1,
+                primary: accentLight,
                 shape: RoundedRectangleBorder(
                   borderRadius: BorderRadius.circular(20.0),
                 ),
@@ -169,7 +169,7 @@ class _OnboardScreenState extends State<OnboardScreen> {
       height: 6,
       width: currentIndex == index ? 20 : 6,
       decoration: BoxDecoration(
-        color: currentIndex == index ? primarygreen : Color(0xFFD8D8D8),
+        color: currentIndex == index ? primaryColor : Color(0xFFD8D8D8),
         borderRadius: BorderRadius.circular(3),
       ),
     );
@@ -204,7 +204,7 @@ class PageBuilderWidget extends StatelessWidget {
           Text(
             title,
             style: TextStyle(
-              color: primarygreen,
+              color: primaryColor,
               fontSize: 24.sp,
               fontWeight: FontWeight.w700,
             ),
@@ -216,7 +216,7 @@ class PageBuilderWidget extends StatelessWidget {
             description,
             textAlign: TextAlign.justify,
             style: TextStyle(
-              color: primarygreen,
+              color: primaryColor,
               fontSize: 14.sp,
             ),
           ),

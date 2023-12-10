@@ -62,65 +62,6 @@ class ProfileScreenState extends State<ProfileScreen> {
 
     /// Do update functionality here
     print('Update button clicked');
-    // if(Provider.of<ProfileProvider>(context, listen: false).userInfoModel!.fName == _firstNameController.text
-    //     && Provider.of<ProfileProvider>(context, listen: false).userInfoModel!.lName == _lastNameController.text
-    //     && Provider.of<ProfileProvider>(context, listen: false).userInfoModel!.phone == _phoneController.text && file == null
-    //     && _passwordController.text.isEmpty && _confirmPasswordController.text.isEmpty) {
-    //
-    //   ScaffoldMessenger.of(context).showSnackBar(const SnackBar(content: Text('Change something to update'),
-    //       backgroundColor: ColorResources.red));
-    // }
-    //
-    // else if (firstName.isEmpty || lastName.isEmpty) {
-    //   ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text(getTranslated('NAME_FIELD_MUST_BE_REQUIRED', context)!),
-    //       backgroundColor: ColorResources.red));
-    // }
-    //
-    // else if (email.isEmpty) {
-    //   ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text(getTranslated('EMAIL_MUST_BE_REQUIRED', context)!),
-    //       backgroundColor: ColorResources.red));
-    // }
-    //
-    // else if (phoneNumber.isEmpty) {
-    //   ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text(getTranslated('PHONE_MUST_BE_REQUIRED', context)!),
-    //       backgroundColor: ColorResources.red));
-    // }
-    //
-    // else if((password.isNotEmpty && password.length < 6)
-    //     || (confirmPassword.isNotEmpty && confirmPassword.length < 6)) {
-    //   ScaffoldMessenger.of(context).showSnackBar(const SnackBar(content: Text('Password should be at least 6 character'),
-    //       backgroundColor: ColorResources.red));
-    // }
-    //
-    // else if(password != confirmPassword) {
-    //   ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text(getTranslated('PASSWORD_DID_NOT_MATCH', context)!),
-    //       backgroundColor: ColorResources.red));
-    // }
-    //
-    // else {
-    //   UserInfoModel updateUserInfoModel = Provider.of<ProfileProvider>(context, listen: false).userInfoModel!;
-    //   updateUserInfoModel.method = 'put';
-    //   updateUserInfoModel.fName = _firstNameController.text;
-    //   updateUserInfoModel.lName = _lastNameController.text;
-    //   updateUserInfoModel.phone = _phoneController.text;
-    //   String pass = _passwordController.text;
-    //
-    //   await Provider.of<ProfileProvider>(context, listen: false).updateUserInfo(
-    //     updateUserInfoModel, pass, file, Provider.of<AuthProvider>(context, listen: false).getUserToken(),
-    //   ).then((response) {
-    //     if(response.isSuccess) {
-    //       Provider.of<ProfileProvider>(context, listen: false).getUserInfo(context);
-    //       ScaffoldMessenger.of(context).showSnackBar(const SnackBar(content: Text('Updated Successfully'),
-    //           backgroundColor: Colors.green));
-    //       _passwordController.clear();
-    //       _confirmPasswordController.clear();
-    //       setState(() {});
-    //     }else {
-    //       ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text(response.message!),
-    //           backgroundColor: Colors.red));
-    //     }
-    //   });
-    // }
   }
 
 
@@ -161,7 +102,7 @@ class ProfileScreenState extends State<ProfileScreen> {
                     alignment: Alignment.center,
                     decoration: BoxDecoration(
                       color: Theme.of(context).cardColor,
-                      border: Border.all(color: Colors.white, width: 3),
+                      border: Border.all(color: accentShade, width: 3),
                       shape: BoxShape.circle,),
                     child: Stack(clipBehavior: Clip.none,
                       children: [
@@ -177,7 +118,7 @@ class ProfileScreenState extends State<ProfileScreen> {
                           Image.file(file!, width: Dimensions.profileImageSize,
                               height: Dimensions.profileImageSize, fit: BoxFit.fill),),
                         Positioned(bottom: 0, right: -10,
-                          child: CircleAvatar(backgroundColor: lightgreenshede,
+                          child: CircleAvatar(backgroundColor: accentShade,
                             radius: 14,
                             child: IconButton(onPressed: _choose,
                               padding: const EdgeInsets.all(0),
@@ -208,7 +149,7 @@ class ProfileScreenState extends State<ProfileScreen> {
                       child: Row(children: [
                         Expanded(child: Column(
                           children: [Row(children: [
-                            Icon(Icons.person, color: lightgreenshede, size: 20,),
+                            Icon(Icons.person, color: accentShade, size: 20,),
                             const SizedBox(width: Dimensions.marginSizeExtraSmall),
                             Text('First Name')
                           ],
@@ -219,6 +160,7 @@ class ProfileScreenState extends State<ProfileScreen> {
                               focusNode: _fNameFocus,
                               nextNode: _lNameFocus,
                               hintText: 'Enter first name',
+                              fillColor: primaryBackground,
                               controller: _firstNameController,
                             ),
                           ],
@@ -228,7 +170,7 @@ class ProfileScreenState extends State<ProfileScreen> {
                         Expanded(child: Column(
                           children: [
                             Row(children: [
-                              Icon(Icons.person, color: lightgreenshede, size: 20,),
+                              Icon(Icons.person, color: accentShade, size: 20,),
                               const SizedBox(width: Dimensions.marginSizeExtraSmall),
                               Text('Last Name')
                             ],),
@@ -238,6 +180,7 @@ class ProfileScreenState extends State<ProfileScreen> {
                               textInputType: TextInputType.name,
                               focusNode: _lNameFocus,
                               nextNode: _emailFocus,
+                              fillColor: primaryBackground,
                               hintText: 'Enter last name',
                               controller: _lastNameController,
                             ),
@@ -255,7 +198,7 @@ class ProfileScreenState extends State<ProfileScreen> {
                         right: Dimensions.marginSizeDefault),
                       child: Column(children: [
                         Row(children: [Icon(Icons.alternate_email,
-                            color: lightgreenshede, size: 20,),
+                            color: accentShade, size: 20,),
                           const SizedBox(width: Dimensions.marginSizeExtraSmall,),
                           Text('Email')
                         ],
@@ -266,7 +209,7 @@ class ProfileScreenState extends State<ProfileScreen> {
                           focusNode: _emailFocus,
                           isEnable : false,
                           nextNode: _phoneFocus,
-                          fillColor: Theme.of(context).hintColor.withOpacity(.12),
+                          fillColor: primaryBackground,
                           hintText: 'Enter email',
                           controller: _emailController,
                         ),
@@ -281,7 +224,7 @@ class ProfileScreenState extends State<ProfileScreen> {
                         right: Dimensions.marginSizeDefault),
                       child: Column(children: [
                         Row(children: [
-                          Icon(Icons.dialpad, color: lightgreenshede, size: 20,),
+                          Icon(Icons.dialpad, color: accentShade, size: 20,),
                           const SizedBox(width: Dimensions.marginSizeExtraSmall),
                           Text('Phone No')
                         ],),
@@ -292,6 +235,7 @@ class ProfileScreenState extends State<ProfileScreen> {
                           focusNode: _phoneFocus,
                           hintText: 'Enter phone no',
                           nextNode: _addressFocus,
+                          fillColor: primaryBackground,
                           controller: _phoneController,
                           isPhoneNumber: true,
                         ),],
@@ -305,7 +249,7 @@ class ProfileScreenState extends State<ProfileScreen> {
                         right: Dimensions.marginSizeDefault),
                       child: Column(children: [
                         Row(children: [
-                          Icon(Icons.lock_open, color: lightgreenshede, size: 20,),
+                          Icon(Icons.lock_open, color: accentShade, size: 20,),
                           const SizedBox(width: Dimensions.marginSizeExtraSmall),
                           Text('Password')
                         ],),
@@ -327,7 +271,7 @@ class ProfileScreenState extends State<ProfileScreen> {
                       child: Column(children: [
                         Row(
                           children: [
-                            Icon(Icons.lock_open, color: lightgreenshede, size: 20,),
+                            Icon(Icons.lock_open, color: accentShade, size: 20,),
                             const SizedBox(width: Dimensions.marginSizeExtraSmall),
                             Text('Re-enter Password')
                           ],),

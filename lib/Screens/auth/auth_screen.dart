@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:sas_ecommerce/Screens/auth/widget/signin_widget.dart';
 import 'package:sas_ecommerce/Screens/auth/widget/signup_widget.dart';
+import 'package:sas_ecommerce/utill/stored_images.dart';
 
 import '../../helper/constant.dart';
 
@@ -15,8 +16,9 @@ class AuthScreen extends StatelessWidget {
           children: [
             SizedBox(height:50,),
             Image.asset(
-              'assets/images/logo.png', // replace with your logo image asset
+              Images.logoWithNameImage, // replace with your logo image asset
               height: 100,
+              width: MediaQuery.of(context).size.width-100,
             ),
             SizedBox(height:35,),
             Padding(
@@ -60,7 +62,7 @@ class _MyBoxPainter extends BoxPainter {
   void paint(Canvas canvas, Offset offset, ImageConfiguration configuration) {
     final rect = offset & configuration.size!;
     final Paint paint = Paint();
-    paint.color = greenshede1; // Set the color of the selected tab indicator
+    paint.color = accentShade1; // Set the color of the selected tab indicator
     paint.style = PaintingStyle.fill;
     paint.strokeWidth = 1.0;
 

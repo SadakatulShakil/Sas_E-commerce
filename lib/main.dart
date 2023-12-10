@@ -34,10 +34,10 @@ class MyApp extends StatelessWidget {
           title: 'Sas-Ecommerce',
           theme: ThemeData(
             textSelectionTheme: TextSelectionThemeData(
-              selectionColor: greenshede0,
-              cursorColor: greenshede0, // Set the cursor color here
+              selectionColor: accent,
+              cursorColor: accent, // Set the cursor color here
             ),
-            primarySwatch: Colors.pink,
+            primarySwatch: Colors.green,
           ),
           initialRoute: '/',
           routes: {

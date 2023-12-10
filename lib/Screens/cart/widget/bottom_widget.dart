@@ -55,7 +55,7 @@ class _BottomWidgetViewState extends State<BottomWidgetView> {
               },
               child: Container(width: MediaQuery.of(context).size.width/3.5,
                 decoration: BoxDecoration(
-                  color: Theme.of(context).primaryColor,
+                  color: accentShade,
                   borderRadius: BorderRadius.circular(Dimensions.paddingSizeSmall),
                 ),
                 child: Center(

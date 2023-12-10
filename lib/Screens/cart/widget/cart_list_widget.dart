@@ -23,24 +23,6 @@ class _CartListViewState extends State<CartListView> {
         image: Images.orderItem, title: "Item 1", description: "Description 1"),
     CustomListItem(
         image: Images.orderItem, title: "Item 1", description: "Description 1"),
-    CustomListItem(
-        image: Images.orderItem, title: "Item 1", description: "Description 1"),
-    CustomListItem(
-        image: Images.orderItem, title: "Item 2", description: "Description 2"),
-    CustomListItem(
-        image: Images.orderItem, title: "Item 2", description: "Description 2"),
-    CustomListItem(
-        image: Images.orderItem, title: "Item 2", description: "Description 2"),
-    CustomListItem(
-        image: Images.orderItem, title: "Item 3", description: "Description 3"),
-    CustomListItem(
-        image: Images.orderItem, title: "Item 3", description: "Description 3"),
-    CustomListItem(
-        image: Images.orderItem, title: "Item 3", description: "Description 3"),
-    CustomListItem(
-        image: Images.orderItem, title: "Item 3", description: "Description 3"),
-    CustomListItem(
-        image: Images.orderItem, title: "Item 3", description: "Description 3"),
   ];
 
   @override
@@ -92,11 +74,11 @@ class _CustomListTileState extends State<CustomListTile> {
         child: Row(crossAxisAlignment: CrossAxisAlignment.start,mainAxisAlignment:  MainAxisAlignment.start,
             children: [
               Container(
-                width: 70,
-                height: 70,
-                decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(5),
-                    border: Border.all(width: .5, color: Colors.red)),
+                  width: 70,
+                  height: 70,
+                  decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(5),
+                      border: Border.all(width: .5, color: Colors.red)),
                 child: Image.asset(
                   Images.cat_men,
                   fit: BoxFit.cover,
@@ -219,7 +201,7 @@ class _QuantityButtonState extends State<QuantityButton> {
               'Its a warning!',
               'Minimum quantity is ' + widget.minimumOrderQuantity.toString(),
               snackPosition: SnackPosition.TOP,
-              backgroundColor: Colors.pinkAccent,
+              backgroundColor: Colors.redAccent,
               colorText: Colors.white,
               borderRadius: 10,
               margin: EdgeInsets.all(10),
@@ -232,7 +214,7 @@ class _QuantityButtonState extends State<QuantityButton> {
             'Its a warning!',
             'Stock not available',
             snackPosition: SnackPosition.TOP,
-            backgroundColor: Colors.pinkAccent,
+            backgroundColor: Colors.redAccent,
             colorText: Colors.white,
             borderRadius: 10,
             margin: EdgeInsets.all(10),
@@ -245,7 +227,7 @@ class _QuantityButtonState extends State<QuantityButton> {
         decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(20),
           color: Colors.redAccent,
-          border: Border.all(width: 1, color: Theme.of(context).primaryColor),
+          border: Border.all(width: 1, color: Theme.of(context).cardColor),
         ),
         child: Icon(
           widget.isIncrement ? Icons.add : Icons.remove,
